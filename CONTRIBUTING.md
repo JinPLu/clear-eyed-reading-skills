@@ -9,12 +9,14 @@
 3. 保持 `SKILL.md` 简洁、自包含，不在 Skill 目录内增加 README 或变更日志。
 4. 修改触发描述时，同时检查两个 Skill 是否会争抢同一句用户请求。
 5. 涉及创新性、意义或评分的改动，应保留独立领域检索要求。
+6. 核心 `SKILL.md` 使用英文指令，但不得预设输出语言或绑定特定 harness、模型、MCP、CLI 与平台 API。
 
 ## 提交前检查
 
 - YAML frontmatter 只有 `name` 和 `description`。
 - 文件夹名与 `name` 一致。
 - `agents/openai.yaml` 的默认提示明确包含 `$skill-name`。
+- `agents/openai.yaml` 只包含可选界面元数据，不成为核心 Skill 的运行依赖。
 - 快速导读不会自动展开逐节精读。
 - 精读会覆盖全部图表和关键公式，但不会逐段复述。
 - 输出攻击主张和证据，不攻击作者。

@@ -1,71 +1,81 @@
 # Paper Demystifier Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/OpenAI-Skills-111111)](https://developers.openai.com/plugins/build/skills)
+[![Harness](https://img.shields.io/badge/Harness-agnostic-2563EB)](#harness-and-language)
 
-把论文从术语高台上请下来：**看清领域位置，拆开方法机关，核对关键证据，分出真贡献与水分。**
+Read past the terminology. **Locate the work in its field, disassemble the method, test the decisive evidence, and separate genuine contribution from hype.**
 
-![论文祛魅地图：快速导读与完整精读的信息层级](assets/paper-demystifier-map-v2.png)
+![Comic map of the quick-reading and deep-reading paths](assets/paper-demystifier-map-v2.png)
 
-> 当前版本：`v0.1`。两个 Skill 已通过结构校验，并持续用不同学科与文章类型回归。
+> Current version: `v0.1`. Both skills pass structural validation and are being tested across disciplines, article types, languages, and agent environments.
 
-## 🧭 选哪个？
+## 🧭 Choose a Skill
 
-| 你的需求 | 使用的 Skill | 你会得到什么 |
+| What you need | Skill | What it produces |
 | --- | --- | --- |
-| ⚡ “快速读懂、评价创新、看看有没有水分” | [`clear-eyed-paper-reading`](skills/clear-eyed-paper-reading/SKILL.md) | 紧凑导读、关键证据、五维简评与一句总评 |
-| 🔬 “精读、逐图逐表、讲懂公式和实验” | [`clear-eyed-paper-deep-reading`](skills/clear-eyed-paper-deep-reading/SKILL.md) | 领域地图、方法心智模型、完整证据链与最终判断 |
+| ⚡ “Help me understand this quickly, assess the novelty, and find the hype.” | [`clear-eyed-paper-reading`](skills/clear-eyed-paper-reading/SKILL.md) | A compact explanation, decisive evidence, five-dimension assessment, and bottom line |
+| 🔬 “Deep-read every section, figure, table, equation, and experiment.” | [`clear-eyed-paper-deep-reading`](skills/clear-eyed-paper-deep-reading/SKILL.md) | A field map, runnable method model, complete evidence chain, and final assessment |
 
-一句话选择：**只想知道值不值得读，用快速导读；想读完后能讲给别人听，用完整精读。**
+In one line: **use quick reading to decide whether a work deserves attention; use deep reading to understand it well enough to explain, reuse, or challenge it.**
 
-两个 Skill 刻意分开，避免简单请求被冗长流程拖慢，也避免真正的精读退化成摘要。
+The two skills are intentionally separate. A simple reading request should not trigger an exhaustive workflow, and a genuine deep-reading request should not collapse into a summary.
 
-## ✨ 它们怎么祛魅？
+## 🌐 Harness and Language
 
-两条路线共用一把尺子：
+- **Harness-agnostic core**: All essential behavior lives in plain Markdown `SKILL.md` files. The skills require no specific model, MCP server, CLI, filesystem layout, or platform API.
+- **English instructions, no fixed output language**: The skill instructions are written in English for precision. Output language is determined by the user request, active conversation, and host model.
+- **Optional platform metadata**: `agents/openai.yaml` supplies display metadata for OpenAI products. Other harnesses can ignore it without changing skill behavior.
 
-1. 🌍 **放回领域**：独立寻找直接前例，不照抄作者的 Related Work。
-2. ⚙️ **拆开方法**：还原成普通部件，查清新能力有没有外包给提示、标签或外部模型。
-3. 📊 **核对证据**：区分“系统赢了”“模块有效”“作者解释成立”。
-4. ⚖️ **收束判断**：直接说明哪句大话应收回，以及收回后还剩什么价值。
+Any agent harness that can load skill instructions can use the core skills. The harness remains responsible for document access, web research, citation tools, and other environment-specific capabilities.
 
-“毒舌”只针对主张、证据和推理。每个判断都应落回原文、图表、公式或领域前例。
+## ✨ How Demystification Works
 
-## 🚀 安装
+Both reading depths use the same standard:
 
-每个 Skill 都是独立目录，核心文件为 `SKILL.md`。
+1. 🌍 **Restore the field context**: independently identify direct precedents instead of repeating Related Work.
+2. ⚙️ **Disassemble the method**: reduce it to ordinary components and expose capabilities supplied by prompts, labels, rules, or external models.
+3. 📊 **Test the evidence**: distinguish “the system won,” “this module caused the win,” and “the authors' explanation is correct.”
+4. ⚖️ **Converge on a verdict**: state which claim must be narrowed and what remains valuable afterward.
 
-### ChatGPT
+The critical tone applies only to claims, evidence, and reasoning—not to authors. Every strong judgment should trace back to the source text, a figure, a table, an equation, or an independently verified precedent.
 
-在支持个人 Skills 的 ChatGPT 中，分别上传两个 `SKILL.md`；具体入口以当前界面为准。
+## 🚀 Install
 
-- [文章祛魅导读](skills/clear-eyed-paper-reading/SKILL.md)
-- [文章祛魅精读](skills/clear-eyed-paper-deep-reading/SKILL.md)
+Each skill is self-contained. Install the entire chosen directory into the skill search path used by your harness. If the harness accepts only a single instruction file, import the corresponding `SKILL.md`.
 
-### Codex
+Platform-specific examples below are illustrations, not requirements.
 
-把需要的 Skill 目录复制到个人 skills 目录：
+### ChatGPT example
+
+Import each desired `SKILL.md` through the interface that supports personal skills.
+
+- [Clear-Eyed Article Reading](skills/clear-eyed-paper-reading/SKILL.md)
+- [Clear-Eyed Deep Reading](skills/clear-eyed-paper-deep-reading/SKILL.md)
+
+### Codex example
 
 ```bash
 cp -R skills/clear-eyed-paper-reading ~/.codex/skills/
 cp -R skills/clear-eyed-paper-deep-reading ~/.codex/skills/
 ```
 
-## 💬 使用示例
+## 💬 Use
 
-快速导读：
-
-```text
-使用 $clear-eyed-paper-reading 读懂并评价这篇论文：<链接或附件>
-```
-
-完整精读：
+Quick reading:
 
 ```text
-使用 $clear-eyed-paper-deep-reading 祛魅精读这篇论文，讲清背景、方法、公式、全部图表和实验：<链接或附件>
+Use $clear-eyed-paper-reading to explain and critically assess this paper: <link or attachment>
 ```
 
-## 🗂️ 项目结构
+Deep reading:
+
+```text
+Use $clear-eyed-paper-deep-reading to explain the background, method, equations, every figure, and the experiments: <link or attachment>
+```
+
+Prompts may be written in any language. The skills do not prescribe a default output language.
+
+## 🗂️ Project Layout
 
 ```text
 paper-demystifier-skills/
@@ -84,21 +94,23 @@ paper-demystifier-skills/
 └── LICENSE
 ```
 
-## ✅ 开发与验证
+## ✅ Development and Validation
 
-修改后重点检查：
+Changes should preserve these properties:
 
-- 两个 description 仍互斥，不争抢同一句请求；
-- ⚡快速导读保持紧凑，不自动展开逐节精读；
-- 🔬完整精读覆盖全部图表、关键公式与附录；
-- 创新性与意义来自独立领域定位，而非作者自评；
-- 结论清楚、具体、可追溯，不用空泛“局限”凑批判感。
+- The two trigger descriptions remain mutually exclusive.
+- Core instructions remain harness-neutral and introduce no platform dependency.
+- The skills impose no default output language.
+- ⚡ Quick reading stays compact and does not expand into a section-by-section review.
+- 🔬 Deep reading accounts for every figure and table, key equations, and relevant appendices.
+- Novelty and significance rely on independent field positioning rather than author self-description.
+- Conclusions remain concrete and traceable instead of manufacturing criticism from generic limitations.
 
-基础回归用例见 [`evals/cases.yaml`](evals/cases.yaml)。贡献前请阅读 [`CONTRIBUTING.md`](CONTRIBUTING.md)，安全问题见 [`SECURITY.md`](SECURITY.md)。
+Regression cases live in [`evals/cases.yaml`](evals/cases.yaml). Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before contributing and [`SECURITY.md`](SECURITY.md) for security reporting.
 
-本项目使用 [MIT License](LICENSE)。
+Released under the [MIT License](LICENSE).
 
-## 🔗 参考
+## 🔗 Format References
 
-- [OpenAI：Build skills](https://developers.openai.com/plugins/build/skills)
-- [OpenAI：Skills & Plugins](https://learn.chatgpt.com/docs/skills-and-plugins)
+- [OpenAI: Build skills](https://developers.openai.com/plugins/build/skills)
+- [OpenAI: Skills & Plugins](https://learn.chatgpt.com/docs/skills-and-plugins)
