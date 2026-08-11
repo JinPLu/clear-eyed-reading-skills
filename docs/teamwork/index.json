@@ -1,0 +1,101 @@
+{
+  "schema_version": 4,
+  "project": {
+    "name": "paper-demystifier-skills",
+    "root": ".",
+    "description": "Local Teamwork typed-document index for the paper-demystifier skills project."
+  },
+  "tasks": {
+    "deep-reading-anti-mystification": {
+      "title": "重构祛魅精读",
+      "summary": "为零领域背景读者重建可理解、可复述、可审计并有视觉辅助的精读流程。",
+      "search_terms": [
+        "祛魅精读",
+        "零基础读者",
+        "流程图",
+        "主张证据",
+        "Nature skill"
+      ],
+      "status": "active",
+      "documents": [
+        {
+          "type": "discussion",
+          "path": "docs/teamwork/discussions/2026-08-11-deep-reading-anti-mystification.md",
+          "status": "final"
+        },
+        {
+          "type": "review",
+          "path": "docs/teamwork/reviews/2026-08-11-deep-reading-candidate-review.md",
+          "status": "final"
+        }
+      ]
+    },
+    "quick-reading-anti-mystification": {
+      "title": "重构祛魅摘要",
+      "summary": "历史 quick 设计计划；其中固定四篇验证与保留旧 alias 的假设已被共享核心/输出解耦和多 subagent 调研决策取代，实施以新 Review 为准。",
+      "search_terms": [
+        "祛魅摘要",
+        "quick skill",
+        "零基础读者",
+        "贯穿例子",
+        "决定性证据",
+        "五维评分",
+        "图表核验"
+      ],
+      "status": "final",
+      "documents": [
+        {
+          "type": "plan",
+          "path": "docs/teamwork/plans/2026-08-11-quick-reading-anti-mystification.md",
+          "status": "final"
+        }
+      ]
+    },
+    "reading-core-output-separation": {
+      "title": "祛魅阅读共享核心与输出配置解耦",
+      "summary": "将摘要与精读共享的“易懂+祛魅”阅读核心，与深度 profile 及 Markdown/HTML 输出配置拆开，采用 canonical core 生成或同步自包含 Skill。",
+      "search_terms": [
+        "共享阅读核心",
+        "易懂+祛魅",
+        "摘要与精读",
+        "canonical core",
+        "输出配置",
+        "HTML 输出"
+      ],
+      "status": "active",
+      "documents": [
+        {
+          "type": "discussion",
+          "path": "docs/teamwork/discussions/2026-08-11-reading-core-output-separation.md",
+          "status": "final"
+        },
+        {
+          "type": "review",
+          "path": "docs/teamwork/reviews/2026-08-12-shared-core-output-validation.md",
+          "status": "final"
+        }
+      ]
+    },
+    "multiagent-literature-research": {
+      "title": "祛魅阅读的多 subagent 领域与近邻调研",
+      "summary": "不以固定篇数替代充分调研，默认并行覆盖领域脉络、近邻工作和反证先例，由主 agent 合并证据并统一成文；采用两类独立发现路径、四项停止条件和明确的无 subagent 降级规则。",
+      "search_terms": [
+        "多 subagent 调研",
+        "领域脉络",
+        "近邻工作",
+        "反证先例",
+        "证据卡",
+        "停止条件",
+        "共享事实包"
+      ],
+      "status": "active",
+      "documents": [
+        {
+          "type": "discussion",
+          "path": "docs/teamwork/discussions/2026-08-11-multiagent-literature-research.md",
+          "status": "final"
+        }
+      ]
+    }
+  }
+}
