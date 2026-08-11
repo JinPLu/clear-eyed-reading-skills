@@ -1,4 +1,0 @@
-interface:
-  display_name: "Clear-Eyed Article Reading"
-  short_description: "Reveal an article’s real contribution, evidence, and hype"
-  default_prompt: "Use $clear-eyed-paper-reading to explain and critically assess this article."

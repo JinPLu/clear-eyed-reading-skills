@@ -1,5 +1,5 @@
 ---
-name: clear-eyed-paper-deep-reading
+name: clear-eyed-deep-reading
 description: Perform a complete, critical deep reading of a research paper, review, technical blog, or other long-form article. Use only when the user explicitly asks for a deep, section-by-section, figure-by-figure, or fully expanded treatment of the background, method, equations, experiments, or details—or wants to finish able to restate the problem, draw the method, and explain all decisive evidence. Cover independent field research, a runnable method model, every figure and table, key equations, experimental design, major overclaims, and a five-dimension assessment. Do not use for quick explanation, short summary, full translation, formal peer review, or an accept/reject recommendation.
 ---
 

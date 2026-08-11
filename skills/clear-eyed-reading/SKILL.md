@@ -1,9 +1,9 @@
 ---
-name: clear-eyed-paper-reading
+name: clear-eyed-reading
 description: Quickly understand and critically demystify a research paper, review, technical blog, commentary, or other article. Use when the user provides an article, PDF, link, or title and asks to read, explain, evaluate, identify the real novelty or value, assess rigor, challenge hype, or find decisive weaknesses. Produce the field position, genuine contributions, plain-language method, decisive evidence, major overclaims, and practical use. Do not use for explicit section-by-section, figure-by-figure, or otherwise exhaustive deep reading; full translation; formal peer review; or an accept/reject recommendation.
 ---
 
-# 🔎 Clear-Eyed Article Reading
+# 🔎 Clear-Eyed Reading
 
 Answer three questions quickly: **What did it do? Is the evidence enough? How should the result be used?**
 

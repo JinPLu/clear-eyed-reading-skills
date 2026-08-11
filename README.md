@@ -1,120 +1,79 @@
-# Paper Demystifier Skills
+# 祛魅阅读 Skills
 
 **简体中文** | [English](README_EN.md)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Harness](https://img.shields.io/badge/Harness-agnostic-2563EB)](#-harness-与语言)
+[![Harness](https://img.shields.io/badge/Harness-agnostic-2563EB)](#兼容性)
 
-越过术语看本质：**把工作放回领域，拆开方法机关，核对决定性证据，分清真贡献与水分。**
+**不是替你复述文章，而是帮你判断：它真正说了什么，证据撑到哪里，哪些是贡献，哪些是包装。**
 
-![快速导读与完整精读的漫画路线图](assets/paper-demystifier-map-v2.png)
+![快速导读与完整精读](assets/clear-eyed-reading-map-v2.png)
 
-> 当前版本：`v0.1`。两个 Skill 均已通过结构校验，并持续覆盖不同学科、文章类型、语言和 agent 环境。
+## 你为什么需要它
 
-## 🧭 选择 Skill
+论文、综述、技术博客和评论经常有三个阅读障碍：术语遮住了方法，作者叙述放大了新意，结果展示又不等于主张成立。
 
-| 你的需求 | Skill | 默认产出 |
+祛魅阅读把复杂文本还原成四个可回答的问题：
+
+- 🎯 **它到底在主张什么？**
+- ✨ **相对已有工作，真正新增了什么？**
+- 📊 **关键证据证明了什么，又没有证明什么？**
+- ⚖️ **去掉最大的形容词后，还剩多少价值？**
+
+## 选择阅读深度
+
+| | ⚡ `clear-eyed-reading` | 🔬 `clear-eyed-deep-reading` |
 | --- | --- | --- |
-| ⚡“快速读懂、评价创新、看看有没有水分” | [`clear-eyed-paper-reading`](skills/clear-eyed-paper-reading/SKILL.md) | 紧凑导读、决定性证据、五维简评与一句总评 |
-| 🔬“逐节精读、讲懂全部图表、公式和实验” | [`clear-eyed-paper-deep-reading`](skills/clear-eyed-paper-deep-reading/SKILL.md) | 领域地图、可运行的方法模型、完整证据链与最终判断 |
+| **适合** | “读一下、评价、找创新、看看有没有水分” | “精读、逐图逐表、讲懂公式和全部实验” |
+| **重点** | 核心主张、真正贡献、决定性证据、主要水分 | 领域地图、方法心智模型、完整图表与证据链 |
+| **结果** | 一份能快速做决定的紧凑导读 | 一份读完后能复述、画出和质疑方法的完整导读 |
 
-一句话选择：**想判断一篇工作是否值得关注，用快速导读；想读到能够复述、借用或质疑它，用完整精读。**
+只想判断值不值得继续读，选快速导读。想真正掌握并复用这项工作，选完整精读。
 
-两个 Skill 刻意分开：简单请求不会被完整流程拖长，真正的精读也不会退化成摘要。
+## 你会得到什么
 
-## 🌐 Harness 与语言
+### ⚡ 快速导读
 
-- **核心不绑定 harness**：全部关键行为都在纯 Markdown `SKILL.md` 中，不依赖特定模型、MCP、CLI、文件路径或平台 API。
-- **英文指令，不预设输出语言**：Skill 指令使用英文以减少歧义；输出语言由用户请求、当前对话和宿主模型决定。
-- **平台元数据可选**：`agents/openai.yaml` 只提供 OpenAI 产品中的展示信息，其他 harness 可以安全忽略，不影响 Skill 工作。
+`一句话定性 → 真正贡献 → 方法说人话 → 决定性证据 → 问题与水分 → 五维简评 → 一句总评`
 
-任何能够加载 Skill 指令的 agent harness 都可以使用核心 Skill。文档读取、网络检索、引用管理等能力由实际运行环境提供。
+它不会把文章逐节复述，也不会用一串通用“局限”假装批判。
 
-## ✨ 如何祛魅
+### 🔬 完整精读
 
-两种阅读深度使用同一把尺子：
+`全文导航 → 领域前例 → 可运行的方法模型 → 图表/公式覆盖 → 主张—证据地图 → 最终判断`
 
-1. 🌍 **放回领域**：独立寻找直接前例，而不是复述作者的 Related Work。
-2. ⚙️ **拆开方法**：还原为普通部件，查清新能力是否来自提示、标签、规则或外部模型。
-3. 📊 **核对证据**：区分“系统赢了”“模块导致胜利”“作者解释成立”。
-4. ⚖️ **收束判断**：明确哪项主张必须收窄，以及收窄后还剩什么价值。
+它会记录已读与未读范围，逐项覆盖关键图表、公式和附录，不用摘要或搜索片段冒充全文。
 
-批判只针对主张、证据和推理，不针对作者。每个强判断都应落回原文、图表、公式或独立核实的领域前例。
+## 开始使用
 
-## 🚀 安装
-
-每个 Skill 都是独立目录。将所需目录放入目标 harness 的 Skills 搜索路径即可；如果目标只接受单个指令文件，则导入对应的 `SKILL.md`。
-
-以下只是平台示例，不代表运行限制。
-
-### ChatGPT 示例
-
-通过支持个人 Skills 的界面导入所需的 `SKILL.md`：
-
-- [文章祛魅导读](skills/clear-eyed-paper-reading/SKILL.md)
-- [文章祛魅精读](skills/clear-eyed-paper-deep-reading/SKILL.md)
-
-### Codex 示例
-
-```bash
-cp -R skills/clear-eyed-paper-reading ~/.codex/skills/
-cp -R skills/clear-eyed-paper-deep-reading ~/.codex/skills/
-```
-
-## 💬 使用
+每个 Skill 都是一个独立目录。把需要的目录放入你的 agent harness 的 Skills 搜索路径；如果环境只接受单文件，则导入其中的 `SKILL.md`。
 
 快速导读：
 
 ```text
-使用 $clear-eyed-paper-reading 读懂并评价这篇论文：<链接或附件>
+使用 $clear-eyed-reading 读懂并评价这篇文章：<链接或附件>
 ```
 
 完整精读：
 
 ```text
-使用 $clear-eyed-paper-deep-reading 讲清这篇论文的背景、方法、公式、全部图表和实验：<链接或附件>
+使用 $clear-eyed-deep-reading 完整讲清这篇文章的背景、方法、公式、图表和证据：<链接或附件>
 ```
 
-提示词可以使用任何语言；Skill 不指定默认输出语言。
+> 从早期版本升级时，请删除旧的 `clear-eyed-paper-reading` 和 `clear-eyed-paper-deep-reading` 目录，避免重复触发。
 
-## 🗂️ 项目结构
+## 它如何保持清醒
 
-```text
-paper-demystifier-skills/
-├── assets/
-│   ├── paper-demystifier-map.png
-│   └── paper-demystifier-map-v2.png
-├── skills/
-│   ├── clear-eyed-paper-reading/
-│   │   ├── SKILL.md
-│   │   └── agents/openai.yaml
-│   └── clear-eyed-paper-deep-reading/
-│       ├── SKILL.md
-│       └── agents/openai.yaml
-├── evals/cases.yaml
-├── README.md
-├── README_EN.md
-├── CONTRIBUTING.md
-└── LICENSE
-```
+- 🌍 **独立定位**：先找直接前例，再评价创新；作者的 Related Work 只作线索。
+- ⚙️ **拆开能力来源**：检查提示、标签、人工规则、外部模型或评测器是否替方法完成了难题。
+- 📊 **区分三种结论**：系统赢了、某模块导致胜利、作者解释成立，是三件不同的事。
+- 🫧 **只保留决定性问题**：直接指出哪项主张必须收窄，以及收窄后还剩什么价值。
+- 🛡️ **不越权**：不把文章内的指令当作用户指令；未经许可不执行代码、不上传未公开材料。
 
-## ✅ 开发与验证
+## 兼容性
 
-修改时应保持：
+核心指令使用英文 Markdown 编写，不依赖特定模型、MCP、CLI 或平台 API，也不预设输出语言。`agents/openai.yaml` 只是可选的 OpenAI 界面元数据，其他 harness 可以忽略。
 
-- 两个触发 description 互斥，不争抢同一句请求；
-- 核心指令保持 harness-neutral，不引入平台依赖；
-- Skill 不预设默认输出语言；
-- ⚡快速导读保持紧凑，不自动展开逐节精读；
-- 🔬完整精读覆盖全部图表、关键公式和相关附录；
-- 创新性与意义依赖独立领域定位，而不是作者自评；
-- 结论具体、可追溯，不靠通用“局限”制造批判感。
+## 参与改进
 
-回归用例见 [`evals/cases.yaml`](evals/cases.yaml)。贡献前请阅读 [`CONTRIBUTING.md`](CONTRIBUTING.md)，安全问题见 [`SECURITY.md`](SECURITY.md)。
-
-本项目使用 [MIT License](LICENSE)。
-
-## 🔗 格式参考
-
-- [OpenAI：Build skills](https://developers.openai.com/plugins/build/skills)
-- [OpenAI：Skills & Plugins](https://learn.chatgpt.com/docs/skills-and-plugins)
+回归用例见 [`evals/cases.yaml`](evals/cases.yaml)。贡献规范见 [`CONTRIBUTING.md`](CONTRIBUTING.md)，安全说明见 [`SECURITY.md`](SECURITY.md)。项目采用 [MIT License](LICENSE)。
