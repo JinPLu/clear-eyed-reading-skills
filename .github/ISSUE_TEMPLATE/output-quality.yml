@@ -1,0 +1,56 @@
+name: Output quality
+description: 报告误触发、漏读、评价失真或叙述问题
+title: "[Output] "
+labels:
+  - output-quality
+body:
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Skill
+      options:
+        - clear-eyed-paper-reading
+        - clear-eyed-paper-deep-reading
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: 问题类型
+      options:
+        - 误触发或没有触发
+        - 领域调研不足
+        - 方法理解错误
+        - 遗漏关键图表或实验
+        - 评价过于保守或苛刻
+        - 叙述生硬或模板化
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: 原始请求
+      description: 请移除未公开论文、个人信息和敏感材料。
+      placeholder: 粘贴脱敏后的请求
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: 实际输出与期望
+      description: 说明最需要改进的一处，以及你期望看到什么。
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 使用环境
+      placeholder: ChatGPT Web / ChatGPT Desktop / Codex
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 隐私确认
+      options:
+        - label: 我已移除未公开论文、评审材料、个人信息和其他敏感内容。
+          required: true

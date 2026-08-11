@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security report
+    url: https://github.com/JinPLu/paper-demystifier-skills/security/advisories/new
+    about: 请通过私密渠道报告提示注入、材料泄露或越权行为。

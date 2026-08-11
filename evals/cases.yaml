@@ -1,0 +1,39 @@
+version: 1
+cases:
+  - id: quick-system-paper
+    skill: clear-eyed-paper-reading
+    prompt: "读一下这篇 AI 系统论文，告诉我创新在哪里、方法到底是什么、有没有水分。"
+    expect:
+      - "输出紧凑导读而非逐节复述"
+      - "独立定位前例后再评价创新性"
+      - "把系统还原为普通部件并评价架构"
+      - "给出五维整数分但不计算总分"
+
+  - id: quick-non-paper
+    skill: clear-eyed-paper-reading
+    prompt: "帮我祛魅地读这篇技术博客。"
+    expect:
+      - "检查来源、论证链和概念偷换"
+      - "不强行套论文五维评分"
+
+  - id: deep-system-paper
+    skill: clear-eyed-paper-deep-reading
+    prompt: "精读这篇论文，把背景、方法、公式、所有图表和实验都讲懂。"
+    expect:
+      - "先给全文导航和领域地图"
+      - "形成可运行的方法心智模型"
+      - "建立图表和关键公式清单并逐项覆盖"
+      - "按主张组织实验而非按表格顺序报数"
+      - "最后收束贡献、水分、评分和下一步"
+
+  - id: routing-short
+    skill: clear-eyed-paper-reading
+    prompt: "简单读一下这篇论文。"
+    expect:
+      - "不触发完整精读流程"
+
+  - id: routing-deep
+    skill: clear-eyed-paper-deep-reading
+    prompt: "逐节精读这篇论文。"
+    expect:
+      - "不退化为快速摘要"
