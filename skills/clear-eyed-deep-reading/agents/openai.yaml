@@ -1,6 +1,6 @@
 interface:
   display_name: "Clear-Eyed Deep Reading"
-  short_description: "Explain the method, details, evidence, and real contribution"
-  default_prompt: "Use $clear-eyed-deep-reading to explain this work's problem, method, details, experiments, real contribution, and evidence limits."
+  short_description: "Reconstruct the work, real contribution, details, and how its result comes about"
+  default_prompt: "Use $clear-eyed-deep-reading to reconstruct this work, explain its details and genuine contribution, and show how its result or conclusion comes about."
 policy:
   allow_implicit_invocation: false

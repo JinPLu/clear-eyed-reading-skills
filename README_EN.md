@@ -7,44 +7,45 @@
 
 **Finished the paper and still cannot explain what it actually did?**
 
-You understood the terminology but not the mechanism. You saw the tables but still cannot tell whether the novelty is real. The authors claim broad superiority, but the evidence boundary remains unclear.
+You understood the terminology but not the mechanism. You saw the tables but still cannot make sense of the result. The authors gave the work a striking new name, but what genuinely changed remains unclear.
 
-Clear-Eyed Reading does not retell the paper. It reconstructs the problem and method in plain language, then checks the nearest work and decisive evidence. The result answers three questions: **what genuinely changed, how far the evidence reaches, and whether the work deserves more time.**
+Clear-Eyed Reading does not retell a paper inside the authors' framing. It first maps every important candidate innovation and contribution across the task definition, method designs, data and evaluation, evidence, tools, and system combinations, then independently searches, compares, and verifies each one. Only then does it explain the genuinely new designs, direct contributions, capability sources, and reasons for the results in plain language. Demystification is primarily contribution research and explanation, not a boundary audit organized around what the work “does” or “does not” prove.
 
-![Clear-Eyed Reading Map: one shared core, then Quick and Deep Reading](assets/clear-eyed-reading-map-v3.png)
+![Clear-Eyed Reading Map: contribution mapping before Quick and Deep Reading](assets/clear-eyed-reading-map-v6.png)
 
 ## After Reading, You Will Know
 
-- 🧠 **How the method works**: what goes in, what each step does, and where the capability comes from.
-- ✨ **What the genuine contribution is**: what changed relative to the nearest prior work.
-- 📊 **What the evidence establishes**: which conclusions the decisive figures and experiments support, and what they cannot establish.
-- ⚖️ **How to judge the work**: its applicable range, material limits, and whether it deserves more time.
+- 🧠 **What the ordinary mechanism is**: after removing module names, how key operations turn inputs into results.
+- 🔌 **Where the capability comes from**: what comes from this work versus data, external models, priors, human choices, or post-processing.
+- 🗺️ **What the full contribution map is**: which tasks, designs, representations, data, evidence, or system combinations add something and which are inherited.
+- ✨ **Where novelty and significance differ**: how each technical increment differs from its verified nearest work, and what it changes in what the field can understand, do, measure, or verify.
+- 📊 **Where the result comes from**: how the proposed mechanism compares with data, scale, evaluation, and other explanations.
 
 ## Choose the Reading Depth
 
 | | ⚡ `clear-eyed-reading` | 🔬 `clear-eyed-deep-reading` |
 | --- | --- | --- |
 | **Use it for** | Rapid understanding and a novelty or value judgment | Full mastery before explaining or reusing the method |
-| **Output** | Problem → method → genuine contribution → decisive evidence → clear-eyed conclusion | Background, method chain, running example, equations, original figures, experiments, and full judgment |
+| **Output** | Every important design and contribution, with equations, figures, and experiment details compressed to their conclusion and reason | The same contribution map expanded through background, mechanisms, sources, a running example, equations, original figures, experiments, and full judgment |
 | **What you can do next** | Decide whether to keep reading | Explain, redraw, reuse, and challenge the method |
 
-Both depths use the same material and evidence standard. Quick Reading omits only details that do not change the judgment. Deep Reading expands the same chain of understanding and evidence.
+Both depths first complete the same contribution mapping, full-text reading, and external verification. Quick Reading keeps every important design and contribution while compressing the equations, figures, experiments, and implementation details that support them. Deep Reading expands the same map; it does not switch to a different judgment standard.
 
 ## How the Judgment Is Formed
 
-- 🔍 **Read before judging**: check the full text, appendices, and decisive original figures; narrow conclusions when material is missing.
-- 🌍 **Judge novelty independently**: research the field, nearest work, and counter-precedents instead of treating Related Work or citation counts as the answer.
-- 🎯 **Read experiments around the contribution**: explain the results that most change the judgment, then what ablations, extensions, and failures add.
+- 🔍 **Reconstruct without the names**: reduce terminology and modules to inputs, operations, outputs, and necessity, then trace capability or knowledge sources.
+- 🌍 **Verify contributions one by one**: inventory every candidate innovation and contribution, then compare each through primary sources, backward and forward citations, older terminology, and neighboring fields; do not treat Related Work, citation counts, or abstract similarity as the answer.
+- 🎯 **Make sense of the result**: compare the proposed mechanism with data, scale, evaluation design, implementation details, and other explanations for the central results.
 
-Demystifying is not fault-finding. It emphasizes only problems that change a central conclusion, novelty claim, or contribution, while preserving the value that survives a narrower claim.
+Demystifying is not fault-finding, and it does not automatically discount simple, engineering-heavy, or early work. It judges “what is technically new” separately from “what it means for the field,” and foregrounds a gap between the authors' claim and the verified increment only when that gap materially changes the reader's understanding. If decisive primary sources, nearest-work comparisons, or the contribution search are incomplete, it does not guess field novelty or significance scores. When subagents are unavailable, it performs the same candidate-by-candidate research sequentially.
 
 ## Use It Directly
 
 Both skills run only when the user explicitly invokes them.
 
 ```text
-Quick Reading: Use $clear-eyed-reading to explain and assess this article: <link or attachment>
-Deep Reading: Use $clear-eyed-deep-reading to explain this article's method, equations, figures, experiments, and evidence: <link or attachment>
+Quick Reading: Use $clear-eyed-reading to verify and explain every important innovation and contribution in this article: <link or attachment>
+Deep Reading: Use $clear-eyed-deep-reading to expand this article's contribution map, mechanisms, key equations, figures, and experiments: <link or attachment>
 ```
 
 ## Installation and Compatibility

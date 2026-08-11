@@ -96,6 +96,189 @@
           "status": "final"
         }
       ]
+    },
+    "universal-demystification-core": {
+      "title": "通用祛魅共享核心重构",
+      "summary": "将祛魅从主张—证据—边界审计重定义为跨学科的拆解—来源—贡献—结果从哪来共享主干，按需路由研究类型，保留 quick/deep 展开差异、三路调研与反退化验收。",
+      "search_terms": [
+        "通用祛魅",
+        "共享核心",
+        "拆解—来源—贡献—结果从哪来",
+        "问题—解法契合",
+        "能力来源",
+        "竞争性解释",
+        "贡献类型",
+        "跨类型路由",
+        "不是 boundary audit"
+      ],
+      "status": "complete",
+      "documents": [
+        {
+          "type": "discussion",
+          "path": "docs/teamwork/discussions/2026-08-12-universal-demystification-core.md",
+          "status": "final"
+        },
+        {
+          "type": "review",
+          "path": "docs/teamwork/reviews/2026-08-12-universal-demystification-strict-review.md",
+          "status": "final"
+        }
+      ]
+    },
+    "xiaohongshu-clear-eyed-promo": {
+      "title": "小红书宣传 clear-eyed-reading-skills",
+      "summary": "围绕论文阅读中的不稳定与证据边界问题，构思以易懂+祛魅为核心的小红书首篇宣传文案；保留 Attention Is All You Need 的有效 baseline/deep 对比，并完成 Dyna-2 的四线程 gpt-5.6-luna xhigh 对照，当前先逐段比较摘要 baseline/Skill，再共同编写文案，尚未决定最终取舍。",
+      "search_terms": [
+        "小红书文案",
+        "clear-eyed-reading-skills",
+        "读论文最难的不是读不完",
+        "易懂+祛魅",
+        "VeloxSeg",
+        "稳定可检查的读法",
+        "Attention Is All You Need",
+        "Emergent Abilities",
+        "Are Emergent Abilities a Mirage",
+        "The Illusion of Thinking",
+        "Alignment Faking",
+        "Dyna-2",
+        "摘要 baseline Skill 逐段对照",
+        "gpt-5.6-luna",
+        "xhigh",
+        "争议论文候选"
+      ],
+      "status": "active",
+      "documents": [
+        {
+          "type": "discussion",
+          "path": "docs/teamwork/discussions/2026-08-12-xiaohongshu-clear-eyed-promo.md",
+          "status": "active"
+        }
+      ]
+    },
+    "demystification-semantic-drift": {
+      "title": "祛魅语义漂移因果诊断",
+      "summary": "确认祛魅从去作者框架化、来源、真实贡献与结果从哪来漂移为 evidence-boundary audit；首个坏 owned boundary 是易懂+祛魅确认链的错误操作化，后续扩展与验收放大并固化了该漂移。",
+      "search_terms": [
+        "祛魅语义漂移",
+        "evidence-boundary audit",
+        "首个坏边界",
+        "易懂+祛魅确认链",
+        "语义验收缺口",
+        "shared core",
+        "真实贡献",
+        "结果从哪来"
+      ],
+      "status": "complete",
+      "documents": [
+        {
+          "type": "debug",
+          "path": "docs/teamwork/debug/2026-08-12-demystification-semantic-drift.md",
+          "status": "final"
+        }
+      ]
+    },
+    "quick-no-subagent-forward-test-regression": {
+      "title": "Quick no-subagent 前向回归因果诊断",
+      "summary": "确认安装无漂移的 Quick no-subagent 前向测试在 field-research→final-judgment 边界不合规：仅关键词检索、未打开候选主文或完成三条 sequential tracks/全文/收敛，且未披露独立交叉核验缺失或为 8/7/8/8/3 分数提供逐项证据；无修复授权或实施。",
+      "search_terms": [
+        "Quick",
+        "no-subagent",
+        "前向测试回归",
+        "019ff23f-9755-7520-a30c-534b8ad09ded",
+        "field-research→final-judgment",
+        "RDT2",
+        "LAP",
+        "EgoScale",
+        "Dyna-2",
+        "8/7/8/8/3",
+        "gpt-5.6-luna",
+        "xhigh"
+      ],
+      "status": "complete",
+      "documents": [
+        {
+          "type": "debug",
+          "path": "docs/teamwork/debug/2026-08-12-quick-no-subagent-forward-test-regression.md",
+          "status": "final"
+        }
+      ]
+    },
+    "quick-summary-narrative-direction": {
+      "title": "Quick 摘要祛魅叙事导向共定",
+      "summary": "已确认 Quick 采用紧凑可见判词：自然叙事中明确显示技术增量、领域移除/重要性、主张—增量落差（水分）和结果归因，五维逐项给证据理由；近邻主文或顺序三路研究不完整时技术新颖性/领域重要性暂不数字评分，受限研究用范围句披露；实现与同路径前向测试仍待完成。",
+      "search_terms": [
+        "Quick 摘要",
+        "祛魅叙事",
+        "技术增量",
+        "技术新颖性",
+        "领域增量",
+        "领域重要性",
+        "主张—增量落差",
+        "水分",
+        "field-removal",
+        "结果从哪来",
+        "Dyna-2",
+        "no-subagent",
+        "输出契约"
+      ],
+      "status": "complete",
+      "documents": [
+        {
+          "type": "discussion",
+          "path": "docs/teamwork/discussions/2026-08-12-quick-summary-narrative-direction.md",
+          "status": "final"
+        }
+      ]
+    },
+    "understanding-first-demystification-output": {
+      "title": "祛魅即去框架化的解释叙事",
+      "summary": "用户进一步澄清祛魅本身就是帮助理解的解释方式：让读者知道文章实际做了什么、实际创新和实际贡献，而不是先写中性导读再追加批判。Quick 必须覆盖所有重要设计和贡献，只压缩方程、图表与实验细节；贡献地图应把证据和比较整合成直接的核心创新/贡献判断，避免重复边界腔。本文据此区分祛魅与边界审计，推荐去框架化解释、判断融入；具体架构仍待确认。",
+      "search_terms": [
+        "理解先行",
+        "祛魅与边界",
+        "边界审计",
+        "批判性摘要",
+        "评价嵌入",
+        "可运行心智模型",
+        "结果从哪来",
+        "正向祛魅",
+        "Quick 摘要叙事"
+      ],
+      "status": "active",
+      "documents": [
+        {
+          "type": "discussion",
+          "path": "docs/teamwork/discussions/2026-08-12-understanding-first-demystification-output.md",
+          "status": "active"
+        }
+      ]
+    },
+    "contribution-map-demystification-implementation": {
+      "title": "贡献地图祛魅实现",
+      "summary": "按已选方向把贡献地图设为 Quick/Deep 输出前的强制重建：列出候选增量、调研相关设计与领域、核验设计/实验/叙事，再还原实际内容、创新和贡献；Quick 覆盖重要设计/贡献并压缩细节，完成源、eval、文档同步与 Dyna-2-like 前向验收。",
+      "search_terms": [
+        "贡献地图",
+        "实际创新",
+        "实际贡献",
+        "Quick",
+        "Deep",
+        "多主张回归",
+        "no-subagent",
+        "Dyna-2"
+      ],
+      "status": "complete",
+      "documents": [
+        {
+          "type": "plan",
+          "path": "docs/teamwork/plans/2026-08-12-contribution-map-demystification-implementation.md",
+          "status": "final"
+        },
+        {
+          "type": "review",
+          "path": "docs/teamwork/reviews/2026-08-12-contribution-map-demystification-strict-review.md",
+          "status": "final"
+        }
+      ]
     }
   }
 }

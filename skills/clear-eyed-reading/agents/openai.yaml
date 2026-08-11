@@ -1,6 +1,6 @@
 interface:
   display_name: "Clear-Eyed Reading"
-  short_description: "Explain the method, real contribution, evidence, and hype"
-  default_prompt: "Use $clear-eyed-reading to explain and demystify this article."
+  short_description: "Explain what the work really does, contributes, and how its result comes about"
+  default_prompt: "Use $clear-eyed-reading to explain and demystify what this article really does, contributes, and how its result or conclusion comes about."
 policy:
   allow_implicit_invocation: false
