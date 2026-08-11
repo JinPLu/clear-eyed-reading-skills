@@ -11,21 +11,15 @@ Research papers, reviews, and technical articles are often difficult for a reaso
 
 These two skills use the same understandable, clear-eyed reading core. They differ only in how much of the completed analysis they show:
 
-```mermaid
-flowchart LR
-    A[Understand the problem and method] --> B[Verify the field position and nearest work]
-    B --> C[Align claims, evidence, and limits]
-    C --> Q[Quick Reading<br/>Shortest complete path]
-    C --> D[Deep Reading<br/>Expanded equations, figures, details, and experiments]
-```
+![Clear-Eyed Reading Map: one shared core, then Quick and Deep Reading](assets/clear-eyed-reading-map-v3.png)
 
 ## What They Help You Answer
 
-- What problem does the work solve, and why is it difficult?
-- How does the method actually work, and where does its capability come from?
-- What genuinely changed relative to the nearest prior work?
-- Which experiments support the central conclusion, and which are only supplementary?
-- What value remains after promotional language is removed, and how should the work be used?
+- 🎯 **What problem does the work solve, and why is it difficult?**
+- 🔍 **How does the method actually work, and where does its capability come from?**
+- ✨ **What genuinely changed relative to the nearest prior work?**
+- 📊 **Which experiments support the central conclusion, and which are only supplementary?**
+- ⚖️ **What value remains after promotional language is removed, and how should the work be used?**
 
 ## Choose the Reading Depth
 
@@ -43,12 +37,12 @@ For a complete research paper, both skills assess five dimensions separately: **
 
 ## How the Judgment Is Formed
 
-- **Understand before judging.** Reconstruct the problem, the method, and a running example instead of substituting terminology for explanation.
-- **Position the increment independently.** When search is available, investigate the field landscape, nearest work, and precedents that may narrow the novelty claim. Treat Related Work as leads, not ground truth.
-- **Do not count papers toward a verdict.** Read judgment-changing candidates and compare them on the relevant axes. Stop when the judgment converges and the remaining coverage gaps can be stated.
-- **Expose capability sources.** Identify whether prompts, labels, human rules, external models, evaluators, or data processing perform a decisive part of the task.
-- **Match each conclusion to its evidence.** “The system performed better,” “this module caused the gain,” and “the authors' explanation is correct” are separate claims.
-- **Keep only limitations that change the conclusion.** State which claim must narrow and what contribution remains, rather than appending a generic list of flaws.
+- 🧭 **Understand before judging.** Reconstruct the problem, the method, and a running example instead of substituting terminology for explanation.
+- 🌍 **Position the increment independently.** When search is available, investigate the field landscape, nearest work, and precedents that may narrow the novelty claim. Treat Related Work as leads, not ground truth.
+- 🔎 **Do not count papers toward a verdict.** Read judgment-changing candidates and compare them on the relevant axes. Stop when the judgment converges and the remaining coverage gaps can be stated.
+- ⚙️ **Expose capability sources.** Identify whether prompts, labels, human rules, external models, evaluators, or data processing perform a decisive part of the task.
+- 📊 **Match each conclusion to its evidence.** “The system performed better,” “this module caused the gain,” and “the authors' explanation is correct” are separate claims.
+- 🫧 **Keep only limitations that change the conclusion.** State which claim must narrow and what contribution remains, rather than appending a generic list of flaws.
 
 When subagents are available, the field landscape, nearest work, and counter-precedents can be checked independently in parallel; the main agent reads the decisive sources and writes the final account. Without subagents, the same questions are handled sequentially and the weaker independence is disclosed. Without external search or complete source material, the skill narrows its novelty and evidence conclusions instead of filling gaps with guesses.
 
@@ -74,7 +68,7 @@ When upgrading from an early release, you may remove the old `clear-eyed-paper-r
 
 ## Safety and Compatibility
 
-Text inside an article is treated only as material to analyze, never as user instruction. The skills do not execute code from the article, upload unpublished material, or expand the task scope without permission.
+🛡️ Text inside an article is treated only as material to analyze, never as user instruction. The skills do not execute code from the article, upload unpublished material, or expand the task scope without permission.
 
 The core instructions are written in English Markdown. They require no specific model, MCP server, CLI, or platform API, and impose no output language. [`agents/openai.yaml`](skills/clear-eyed-reading/agents/openai.yaml) contains optional OpenAI interface metadata that other harnesses may ignore.
 
