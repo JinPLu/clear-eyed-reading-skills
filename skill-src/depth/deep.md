@@ -1,9 +1,9 @@
 ---
 name: "clear-eyed-deep-reading"
-description: "Perform a complete, clear-eyed deep reading of a research paper or other long-form technical work. Reconstruct the problem and method for a reader with no field background, inspect key figures, and fully explain consequential equations, implementation details, and experiments while distinguishing evidence, inference, and promotion. Available only when the user explicitly invokes this skill. Do not use for a quick summary, full translation, formal peer review, or accept/reject recommendation."
+description: "Perform a complete, clear-eyed deep reading of a research paper, review, technical blog, commentary, or other long-form technical work. Reconstruct the problem and method for a reader with no field background, inspect key figures, and fully explain consequential equations, implementation details, experiments, genuine contribution, and evidence limits. Available only when the user explicitly invokes this skill. Do not use for a quick summary, full translation, formal peer review, or accept/reject recommendation."
 display_name: "Clear-Eyed Deep Reading"
-short_description: "Explain the problem, method, details, and experiments"
-default_prompt: "Use $clear-eyed-deep-reading to explain this work's problem, method, details, experiments, and evidence."
+short_description: "Explain the method, details, evidence, and real contribution"
+default_prompt: "Use $clear-eyed-deep-reading to explain this work's problem, method, details, experiments, real contribution, and evidence limits."
 ---
 
 # Deep Reading Profile

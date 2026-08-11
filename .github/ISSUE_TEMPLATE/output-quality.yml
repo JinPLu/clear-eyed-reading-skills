@@ -9,8 +9,8 @@ body:
     attributes:
       label: Skill
       options:
-        - clear-eyed-paper-reading
-        - clear-eyed-paper-deep-reading
+        - clear-eyed-reading
+        - clear-eyed-deep-reading
     validations:
       required: true
   - type: dropdown
