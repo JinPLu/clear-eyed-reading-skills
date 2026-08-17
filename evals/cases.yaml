@@ -157,6 +157,13 @@ cases:
       - "无外部检索时退为材料内阅读，不声称已验证领域共识、近邻、创新性或伴生成熟度，也不猜测领域新意或意义评分"
       - "不假设特定模型、MCP、CLI 或平台 API"
 
+  - id: harness-agnostic-any-platform
+    skill: clear-eyed-reading
+    prompt: "使用 $clear-eyed-reading 读这篇论文。当前环境不是 Codex，也不提供 Codex 安装路径。"
+    expect:
+      - "正常完成阅读，不要求 Codex、Cursor 或其他特定 harness"
+      - "不把某一平台的 Skills 目录、CLI 或安装脚本当作运行前提"
+
   - id: no-subagent-research-and-score-gate
     skill: clear-eyed-reading
     prompt: "使用 $clear-eyed-reading 评价这篇多贡献论文并打分。环境可以检索原始文献，但没有 subagent。"

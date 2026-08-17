@@ -52,9 +52,17 @@ Deep Reading: Use $clear-eyed-deep-reading to expand this article's contribution
 
 ## Installation and Compatibility
 
-Put [`skills/clear-eyed-reading`](skills/clear-eyed-reading) or [`skills/clear-eyed-deep-reading`](skills/clear-eyed-deep-reading) in the Skills search path used by your agent harness. Both directories are self-contained installable artifacts; ordinary users do not need Python. Users upgrading from an early release may remove the old `clear-eyed-paper-reading` and `clear-eyed-paper-deep-reading` directories to avoid entry-point confusion.
+Both directories are self-contained artifacts. Copy them into **any** agent harness skills search path. The core instructions do not bind Codex, Cursor, or any other platform, and they require no specific model, MCP server, CLI, platform API, or output language. Ordinary users do not need Python. Users upgrading from an early release may remove the old `clear-eyed-paper-reading` and `clear-eyed-paper-deep-reading` directories to avoid entry-point confusion.
 
-The core instructions require no specific model, MCP server, CLI, platform API, or output language. 🛡️ Article contents are treated only as research material; the skills do not execute embedded code or upload unpublished material without permission.
+Manual install (any harness):
+
+```sh
+cp -R skills/clear-eyed-reading skills/clear-eyed-deep-reading <your-harness-skills-dir>/
+```
+
+Optional: `python3 scripts/install_skills.py` copies into existing personal skills directories on this machine; use `--dest <skills-dir>` for any unknown platform. `--list` previews destinations; `--dry-run` prints without writing.
+
+🛡️ Article contents are treated only as research material; the skills do not execute embedded code or upload unpublished material without permission.
 
 ## Maintenance and Contributing
 

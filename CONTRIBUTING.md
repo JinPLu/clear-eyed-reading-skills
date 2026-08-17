@@ -9,7 +9,7 @@
 3. `skill-src/` 是唯一指令源码；不要直接编辑生成的 `SKILL.md`。运行同步脚本后，每个生成 Skill 仍须简洁、自包含，目录内不增加 README 或变更日志。
 4. 两个入口都只允许用户显式调用；修改入口描述时保持 quick/deep 的粒度边界清楚。
 5. 涉及创新性、意义或评分的改动，应保留独立领域检索要求。
-6. 核心 `SKILL.md` 使用英文指令，但不得预设输出语言或绑定特定 harness、模型、MCP、CLI 与平台 API。
+6. 核心 `SKILL.md` 使用英文指令，但不得预设输出语言或绑定特定 harness、模型、MCP、CLI 与平台 API。安装方式必须同样平台无关：默认是把 `skills/<name>` 复制进任意 harness 的 Skills 目录；`scripts/install_skills.py` 只是复制工具，不是运行依赖，也不得把 Codex 或其他单一平台写成默认宿主。
 7. 行为、入口或架构改变时，同步更新中英文 README；两份文档应保持相同事实、术语和承诺，不保留已经失效的流程图或示例。
 8. 修改 Skill 名称或入口元数据时，同步检查 Issue 模板、回归用例和用户文档。
 
@@ -20,6 +20,7 @@
 - `agents/openai.yaml` 的默认提示明确包含 `$skill-name`。
 - `agents/openai.yaml` 保持 `allow_implicit_invocation: false`，且不成为核心 Skill 的运行依赖。
 - 运行 `python3 scripts/sync_skills.py --check`，确认生成文件与 `skill-src/` 一致。
+- 安装说明保持 harness 无关：可复制到任意 Skills 目录；`scripts/install_skills.py` 不得把单一平台写成默认宿主。
 - 修改 `skill-src/` 后先运行不带 `--check` 的同步脚本生成结果，再审阅两个 `SKILL.md` 和两个 `agents/openai.yaml`；`--check` 只检测漂移。
 - 快速导读不会自动展开逐节精读。
 - 精读会内部盘点完整材料，重点展开会改变理解与判断的图表、公式、细节和实验，但不会逐段复述。

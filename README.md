@@ -52,9 +52,17 @@
 
 ## 安装与兼容性
 
-将 [`skills/clear-eyed-reading`](skills/clear-eyed-reading) 或 [`skills/clear-eyed-deep-reading`](skills/clear-eyed-deep-reading) 放入 agent harness 的 Skills 搜索路径即可。两个目录都是自包含安装产物，普通用户不需要 Python。早期版本用户可移除旧的 `clear-eyed-paper-reading` 和 `clear-eyed-paper-deep-reading` 目录，避免入口名混淆。
+两个目录都是自包含安装产物，可放入**任意** agent harness 的 Skills 搜索路径。核心指令不绑定 Codex、Cursor 或其他平台，也不绑定特定模型、MCP、CLI、平台 API 或输出语言。普通用户不需要 Python。早期版本用户可移除旧的 `clear-eyed-paper-reading` 和 `clear-eyed-paper-deep-reading` 目录，避免入口名混淆。
 
-核心指令不绑定特定模型、MCP、CLI、平台 API 或输出语言。🛡️ 文章内容只被视为研究材料；未经许可，Skill 不执行文中代码，也不上传未公开材料。
+手动安装（任意 harness）：
+
+```sh
+cp -R skills/clear-eyed-reading skills/clear-eyed-deep-reading <your-harness-skills-dir>/
+```
+
+可选：`python3 scripts/install_skills.py` 会复制到本机已存在的个人 Skills 目录；用 `--dest <skills-dir>` 指定任意未知平台。`--list` 预览目标，`--dry-run` 只打印不写入。
+
+🛡️ 文章内容只被视为研究材料；未经许可，Skill 不执行文中代码，也不上传未公开材料。
 
 ## 维护与贡献
 
