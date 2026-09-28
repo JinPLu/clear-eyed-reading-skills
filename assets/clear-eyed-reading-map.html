@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Clear-Eyed Reading Map</title>
+<style>
+  :root {
+    --paper: #F6F0E2;
+    --card: #FFFDF7;
+    --ink: #26241F;
+    --muted: #6E675B;
+    --line: #D9CFBA;
+    --amber: #D9962B;
+    --amber-soft: #FBEBC8;
+    --teal: #2C7A86;
+    --teal-soft: #D6ECEE;
+    --new: #C9791A;
+    --old: #8C8474;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1672px; height: 940px; background: var(--paper); }
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", -apple-system, "Helvetica Neue", sans-serif;
+    color: var(--ink);
+    padding: 38px 56px 34px;
+    display: flex; flex-direction: column; gap: 18px;
+    background-image: radial-gradient(rgba(120,100,60,.06) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+  header { display: flex; align-items: baseline; gap: 26px; }
+  h1 { font-size: 52px; font-weight: 800; letter-spacing: 2px; }
+  header p { font-size: 22px; color: var(--muted); }
+  header .tag { margin-left: auto; font-style: normal; font-size: 16px; color: #9A6412; border: 1.5px solid var(--amber); border-radius: 999px; padding: 4px 14px; background: var(--amber-soft); }
+  body.en { font-family: -apple-system, "Helvetica Neue", sans-serif; }
+  body.en h1 { letter-spacing: 0; font-size: 46px; white-space: nowrap; }
+  body.en header p { font-size: 20px; white-space: nowrap; }
+  header .tag { white-space: nowrap; }
+  body.en .ex { font-size: 14.5px; line-height: 1.45; }
+  body.en .lane span { font-size: 15px; }
+  body.en pre { font-size: 16px; }
+
+  .grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 22px 40px; position: relative; }
+  .card {
+    background: var(--card); border: 2px solid var(--ink); border-radius: 18px;
+    padding: 20px 24px 18px; position: relative;
+    box-shadow: 5px 5px 0 rgba(38,36,31,.12);
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .card:not(:nth-child(3n))::after {
+    content: "▶"; position: absolute; right: -32px; top: 50%; transform: translateY(-50%);
+    font-size: 22px; color: var(--ink);
+  }
+  .top { display: flex; align-items: center; gap: 14px; }
+  .num {
+    flex: none; width: 42px; height: 42px; border-radius: 50%; background: var(--ink); color: var(--paper);
+    display: grid; place-items: center; font-size: 22px; font-weight: 800; font-family: "SF Pro Rounded", -apple-system, sans-serif;
+  }
+  .q { font-size: 27px; font-weight: 800; line-height: 1.2; }
+  body.en .q { font-size: 23px; }
+  .a { font-size: 18px; color: var(--muted); line-height: 1.55; }
+  body.en .a { font-size: 15.5px; line-height: 1.45; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-size: 15px; padding: 3px 11px; border-radius: 999px; background: #EFE7D4; color: #4A4538; }
+  body.en .chip { font-size: 14px; }
+
+  pre {
+    font-family: Menlo, monospace; font-size: 17px; line-height: 1.0; color: var(--ink);
+    background: #F3EDE0; border-radius: 10px; padding: 8px 12px; margin-top: auto;
+  }
+  pre .n { color: var(--new); font-weight: 700; }
+  pre .o { color: var(--old); }
+
+  table { border-collapse: collapse; font-size: 14.5px; margin-top: auto; width: 100%; }
+  body.en table { font-size: 12.5px; }
+  body.en td, body.en th { padding: 4px 6px; }
+  th, td { border: 1.5px solid var(--line); padding: 5px 7px; text-align: left; }
+  th { background: #F3EDE0; font-weight: 700; }
+  td.hl { color: var(--new); font-weight: 700; }
+
+  .depth { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .lane { border-radius: 16px; padding: 14px 22px; display: flex; align-items: center; gap: 18px; border: 2px solid; }
+  .lane.quick { background: var(--amber-soft); border-color: var(--amber); }
+  .lane.deep { background: var(--teal-soft); border-color: var(--teal); }
+  .lane b { font-size: 24px; white-space: nowrap; }
+  .lane.quick b { color: #9A6412; }
+  .lane.deep b { color: #1E5C66; }
+  .lane code { font-family: "SF Mono", Menlo, monospace; font-size: 14px; display: block; opacity: .75; margin-top: 2px; }
+  .ex { margin-top: auto; font-size: 16.5px; line-height: 1.55; border-left: 4px solid var(--amber); padding: 6px 12px; background: #FBF4E4; border-radius: 0 8px 8px 0; }
+  body.en .ex { font-size: 15.5px; }
+  .lane span { font-size: 16.5px; line-height: 1.5; color: #3F3B32; }
+
+  footer {
+    display: flex; align-items: center; gap: 14px; font-size: 17px; color: var(--muted);
+    border-top: 2px dashed var(--line); padding-top: 14px;
+  }
+  footer strong { color: var(--ink); font-size: 18px; white-space: nowrap; }
+  footer .dot { color: var(--line); }
+</style>
+</head>
+<body>
+<header>
+  <h1 data-i="title"></h1>
+  <p data-i="subtitle"></p>
+  <em class="tag" data-i="tag"></em>
+</header>
+
+<section class="grid">
+  <div class="card">
+    <div class="top"><div class="num">1</div><div class="q" data-i="q1"></div></div>
+    <div class="a" data-i="a1"></div>
+    <div class="ex" data-i="ex1"></div>
+    <div class="chips" data-chips="c1"></div>
+  </div>
+  <div class="card">
+    <div class="top"><div class="num">2</div><div class="q" data-i="q2"></div></div>
+    <div class="a" data-i="a2"></div>
+    <div class="ex" data-i="ex2"></div>
+    <div class="chips" data-chips="c2"></div>
+  </div>
+  <div class="card">
+    <div class="top"><div class="num">3</div><div class="q" data-i="q3"></div></div>
+    <div class="a" data-i="a3"></div>
+<pre>      x
+  ┌───┴────┐
+  ▼        ▼
+┌───┐  ┌───────┐  <span class="o">← ○ W0 frozen</span>
+│W0 │  │ B(Ax) │  <span class="n">← ★ B, A new</span>
+└─┬─┘  └───┬───┘
+  └──▶ + ◀─┘
+       ▼ h</pre>
+  </div>
+  <div class="card">
+    <div class="top"><div class="num">4</div><div class="q" data-i="q4"></div></div>
+    <div class="a" data-i="a4"></div>
+    <table><thead><tr><th data-i="t1"></th><th data-i="t2"></th><th data-i="t3"></th></tr></thead>
+      <tbody><tr><td data-i="t4"></td><td class="hl" data-i="t5"></td><td data-i="t6"></td></tr><tr><td data-i="t7"></td><td class="hl" data-i="t8"></td><td data-i="t9"></td></tr></tbody></table>
+  </div>
+  <div class="card">
+    <div class="top"><div class="num">5</div><div class="q" data-i="q5"></div></div>
+    <div class="a" data-i="a5"></div>
+    <div class="ex" data-i="ex5"></div>
+    <div class="chips" data-chips="c5"></div>
+  </div>
+  <div class="card">
+    <div class="top"><div class="num">6</div><div class="q" data-i="q6"></div></div>
+    <div class="a" data-i="a6"></div>
+    <div class="ex" data-i="ex6"></div>
+    <div class="chips" data-chips="c6"></div>
+  </div>
+</section>
+
+<section class="depth">
+  <div class="lane quick"><b data-i="quick"></b><span data-i="quickText"></span></div>
+  <div class="lane deep"><b data-i="deep"></b><span data-i="deepText"></span></div>
+</section>
+
+<footer><strong data-i="base"></strong><span data-i="baseText"></span></footer>
+
+<script>
+const T = {
+  zh: {
+    title: "祛魅阅读地图",
+    subtitle: "去掉作者包装，用六个问题读懂一篇文章",
+    tag: "贯穿示例：LoRA（arXiv:2106.09685）",
+    q1: "一句话：它到底做了什么？", a1: "不用作者起的名字，直接说实际做了什么、最重要的新东西和总体判断。",
+    ex1: "例：冻结原模型，只在旁边学两块小矩阵；真正新的是训练完能合并回原权重。好用，但“超过全量微调”要打折扣。",
+    c1: ["依据的版本", "决定结论的来源"],
+    q2: "它要解决什么问题？", a2: "具体难在哪里，以前的人怎么做，只补这篇需要的背景。",
+    ex2: "例：全量微调 GPT-3 要 1.2TB 显存，每个任务还得另存一份 350GB。",
+    c2: ["难点", "以前的做法", "卡在哪里"],
+    q3: "它是怎么做的？", a3: "一张终端也能看的框线图，加一个能手算的例子逐步走通。",
+    q4: "真正新在哪里？", a4: "每项声称的贡献都和最接近的前人工作对比。",
+    t1: "已有", t2: "本文改了什么", t3: "去掉会少什么", t4: "冻结主干 + 低秩适配（语音，2016）", t5: "线性并联，能合并回原权重", t6: "零额外延迟的通用写法",
+    t7: "冻结主干省显存（Adapter 等）", t8: "GPT-3 上的实测对比", t9: "多数不独有",
+    q5: "结果为什么这样？可信吗？", a5: "撑起结论的证据，最有力的另一种解释，以及正文之外的校准。",
+    ex5: "例：GLUE 领先几乎全来自 RTE，而 LoRA 在那里从 MNLI 权重起步；严格对照下略低。",
+    c5: ["关键证据", "其他解释", "评审 / 版本", "代码 / 复现"],
+    q6: "值不值得读？怎么用？", a6: "谁该读、拿来做什么、用的时候要注意什么。",
+    ex6: "例：显卡有限时首选；教新领域或数据很多时，预期不如全量微调。",
+    c6: ["适合谁", "怎么用", "注意事项"],
+    quick: "⚡ 快速导读", quickText: "六节都压缩：一张图、一个短例子，细节只留结论和原因；默认不打分。",
+    deep: "🔬 完整精读", deepText: "六节逐一展开：模块走通、公式代数字、原图导读、实验消融、五维评分。",
+    base: "背后的查证", baseText: "读原文和版本 · 多条路径找最接近的前人工作 · 想清其他可能的解释 · 查不到就说没查到"
+  },
+  en: {
+    title: "Clear-Eyed Reading Map",
+    subtitle: "Strip the packaging, read through six questions",
+    tag: "Example: LoRA (arXiv:2106.09685)",
+    q1: "In one sentence: what does it do?", a1: "What it actually does without the authors' names, the most important new thing, and the verdict.",
+    ex1: "e.g. Freeze the model and learn two small side matrices; the real novelty is merging them back after training. Useful, but “beats full fine-tuning” is overstated.",
+    c1: ["version read", "sources behind the verdict"],
+    q2: "What problem does it solve?", a2: "Why the problem is hard, how people handled it before, and only the background this work needs.",
+    ex2: "e.g. Fully fine-tuning GPT-3 needs 1.2 TB of GPU memory and a separate 350 GB copy per task.",
+    c2: ["difficulty", "earlier approaches", "where they fell short"],
+    q3: "How does it work?", a3: "A box diagram that reads in any terminal, plus a hand-computable example walked through every step.",
+    q4: "What is actually new?", a4: "Every claimed contribution compared with the closest earlier work.",
+    t1: "Existed", t2: "What changed", t3: "Lost without it", t4: "frozen backbone + low-rank update (speech, 2016)", t5: "linear, parallel, merges back into weights", t6: "a zero-latency drop-in form",
+    t7: "memory savings from freezing (adapters etc.)", t8: "measured head-to-head on GPT-3", t9: "mostly not unique",
+    q5: "Why this result? Believe it?", a5: "The evidence carrying the conclusion, the strongest other explanation, and outside checks.",
+    ex5: "e.g. The GLUE lead comes almost entirely from RTE, where LoRA started from MNLI weights; under a strict comparison it is slightly behind.",
+    c5: ["key evidence", "other explanations", "reviews / versions", "code / reproductions"],
+    q6: "Worth my time? How to use it?", a6: "Who should read it, what to use it for, and what to watch out for.",
+    ex6: "e.g. First choice on limited GPUs; expect it to trail full fine-tuning on new domains or large data.",
+    c6: ["who", "how", "caveats"],
+    quick: "⚡ Quick reading", quickText: "All six compressed: one diagram, one short example, details cut to conclusion and reason; no scores by default.",
+    deep: "🔬 Deep reading", deepText: "All six expanded: every module walked through, equations with numbers, figure guides, ablations, five scores.",
+    base: "Checks underneath", baseText: "Primary text and version · closest earlier work by several routes · rival explanations · say plainly what could not be checked"
+  }
+};
+const lang = location.hash === "#en" ? "en" : "zh";
+const L = T[lang];
+document.body.classList.add(lang);
+document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+document.querySelectorAll("[data-i]").forEach(el => { el.textContent = L[el.dataset.i]; });
+document.querySelectorAll("[data-chips]").forEach(el => {
+  L[el.dataset.chips].forEach(t => { const s = document.createElement("span"); s.className = "chip"; s.textContent = t; el.appendChild(s); });
+});
+</script>
+</body>
+</html>

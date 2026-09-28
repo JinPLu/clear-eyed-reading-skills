@@ -11,7 +11,7 @@
 
 祛魅阅读不照着作者的包装复述论文。它先去掉模块名和宣传语，用白话讲清这项工作到底做了什么；再把作者声称的每一项贡献和最接近的前人工作逐一对比，分清哪些是借来的、哪些是真正新增的；最后解释结果为什么会这样、值不值得信。评审意见、版本变化、官方代码和独立复现只用来校准成熟度和可用性，不代替对“新在哪里”的判断。
 
-![祛魅阅读地图：快速导读与完整精读](assets/clear-eyed-reading-map-v6.png)
+![祛魅阅读地图：六个读者问题，快速导读与完整精读](assets/clear-eyed-reading-map-v7.png)
 
 ## 输出长什么样
 
@@ -90,4 +90,4 @@ cp -R skills/clear-eyed-reading skills/clear-eyed-deep-reading <your-harness-ski
 
 ## 维护与贡献
 
-[`skill-src/`](skill-src) 是唯一指令源码。使用 `python3 scripts/sync_skills.py` 生成 Skill，使用 `--check` 检查漂移。回归用例见 [`evals/cases.yaml`](evals/cases.yaml)，贡献规范见 [`CONTRIBUTING.md`](CONTRIBUTING.md)，安全问题见 [`SECURITY.md`](SECURITY.md)。项目采用 [MIT License](LICENSE)。
+[`skill-src/`](skill-src) 是唯一指令源码。使用 `python3 scripts/sync_skills.py` 生成 Skill，使用 `--check` 检查漂移。回归用例见 [`evals/cases.yaml`](evals/cases.yaml)，地图配图由 [`assets/clear-eyed-reading-map.html`](assets/clear-eyed-reading-map.html) 渲染（URL 加 `#en` 为英文版），贡献规范见 [`CONTRIBUTING.md`](CONTRIBUTING.md)，安全问题见 [`SECURITY.md`](SECURITY.md)。项目采用 [MIT License](LICENSE)。

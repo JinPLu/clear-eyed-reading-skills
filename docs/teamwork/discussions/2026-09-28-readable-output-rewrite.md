@@ -45,3 +45,4 @@
   - 由此再补：教程/综述类在第 4 节比较讲解框架与已有讲解；次要背景可用摘要但要注明；侧向输入可用 `◀──┘` 从右接入；范围说明只列决定结论的来源。
 - 发现并修复：新 description 含 `: ` 导致生成的 YAML frontmatter 无效（skill-creator `quick_validate.py` 报错），已改写措辞，两技能验证通过。
 - 版本：v2.0.0。
+- README 地图配图：按六节结构重画为 v7（中文 `clear-eyed-reading-map-v7.png`、英文 `-v7-en.png`），以 LoRA 作贯穿示例；源码 `assets/clear-eyed-reading-map.html`，用 Chrome 无头截图以 2 倍分辨率导出；旧 v6 已删除。

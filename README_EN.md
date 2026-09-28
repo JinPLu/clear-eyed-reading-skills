@@ -11,7 +11,7 @@ You understood the terminology but not the mechanism. You saw the tables but sti
 
 Clear-Eyed Reading does not retell a paper inside the authors' packaging. It strips away module names and branding and explains in plain words what the work actually does; compares every contribution the authors claim with the closest earlier work, separating what is borrowed from what is genuinely new; and then explains why the result came out that way and whether to believe it. Reviews, version changes, official code, and independent reproductions only calibrate maturity and usability; they never replace the judgment of what is new.
 
-![Clear-Eyed Reading Map: Quick and Deep Reading](assets/clear-eyed-reading-map-v6.png)
+![Clear-Eyed Reading Map: six reader questions, Quick and Deep Reading](assets/clear-eyed-reading-map-v7-en.png)
 
 ## What the Output Looks Like
 
@@ -90,4 +90,4 @@ Optional: `python3 scripts/install_skills.py` copies into existing personal skil
 
 ## Maintenance and Contributing
 
-[`skill-src/`](skill-src) is the sole instruction source. Run `python3 scripts/sync_skills.py` to generate the skills or add `--check` to detect drift. Regression cases live in [`evals/cases.yaml`](evals/cases.yaml). See [`CONTRIBUTING.md`](CONTRIBUTING.md) for contribution guidance and [`SECURITY.md`](SECURITY.md) for security reporting. Released under the [MIT License](LICENSE).
+[`skill-src/`](skill-src) is the sole instruction source. Run `python3 scripts/sync_skills.py` to generate the skills or add `--check` to detect drift. Regression cases live in [`evals/cases.yaml`](evals/cases.yaml). The map image is rendered from [`assets/clear-eyed-reading-map.html`](assets/clear-eyed-reading-map.html) (append `#en` for the English version). See [`CONTRIBUTING.md`](CONTRIBUTING.md) for contribution guidance and [`SECURITY.md`](SECURITY.md) for security reporting. Released under the [MIT License](LICENSE).
