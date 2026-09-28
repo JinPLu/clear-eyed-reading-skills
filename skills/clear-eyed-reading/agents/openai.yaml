@@ -1,6 +1,6 @@
 interface:
   display_name: "Clear-Eyed Reading"
-  short_description: "Explain what the work really does, contributes, and how its result comes about"
-  default_prompt: "Use $clear-eyed-reading to explain and demystify what this article really does, contributes, and how its result or conclusion comes about."
+  short_description: "Plainly explain what a work really does, what is new, and why its result holds"
+  default_prompt: "Use $clear-eyed-reading to explain in plain language what this article really does, what is actually new, and why its result or conclusion comes out that way."
 policy:
   allow_implicit_invocation: false

@@ -1,23 +1,16 @@
 ---
 name: "clear-eyed-reading"
-description: "Quickly understand and demystify a research paper, review, technical blog, commentary, or other article. Independently reconstruct what the work does, identify its genuine contribution and capability sources, explain how its reported result came about or whether its conclusion is warranted, and give a practical first-screen judgment in plain language. Available only when the user explicitly invokes this skill. Do not use for exhaustive section-by-section, figure-by-figure, equation, experiment, appendix, or companion-source coverage; full translation; formal peer review; or accept/reject recommendation."
+description: "Quickly explain a research paper, review, technical blog, commentary, or other article in plain language, covering what it actually does once names and branding are stripped away, how the method works through a text diagram and one worked example, what is really new versus earlier work, where its ability comes from, why its result came out that way, and whether it is worth the reader's time. Available only when the user explicitly invokes this skill. Do not use for exhaustive section-by-section, figure-by-figure, equation, experiment, appendix, or outside-source coverage; full translation; formal peer review; or accept/reject recommendation."
 display_name: "Clear-Eyed Reading"
-short_description: "Explain what the work really does, contributes, and how its result comes about"
-default_prompt: "Use $clear-eyed-reading to explain and demystify what this article really does, contributes, and how its result or conclusion comes about."
+short_description: "Plainly explain what a work really does, what is new, and why its result holds"
+default_prompt: "Use $clear-eyed-reading to explain in plain language what this article really does, what is actually new, and why its result or conclusion comes out that way."
 ---
 
-# Quick Reading Profile
+# Quick Reading
 
-Complete the shared four judgments. Cover every important candidate contribution in the target, even if the final reading mentions some only briefly. Spend the search budget on claims, nearest neighbors, and companion signals that would change the overall judgment or the decision to keep investing. Do not read the work as if this were a deep reading: do not exhaust appendices, every equation or figure, implementation detail, or all six companion-evidence classes.
+Purpose: a first-screen answer that lets the reader understand the work and decide whether to invest more.
 
-Do one low-cost, high-yield companion pass: whether peer-review or errata traces exist, whether a newer version exists, and whether official code or a project page matches the paper's claims. Deep-dive a neighbor or companion source only when that signal would change the overall judgment. Mark unobserved classes as unobserved; do not infer from absence.
-
-Deliver a usable first-screen answer. Open with a one-sentence ordinary reconstruction, the most important genuine increment, and the overall judgment, and name the version those conclusions rest on. Then reconstruct the problem and answer in ordinary language, explain the important designs and genuine contributions with their capability sources and field position, and carry the reader through the core mechanism with the shortest useful example, equation, or diagram.
-
-Explain how the decisive result came about, whether the conclusion follows, or what lets the system produce the shown behavior. Compress other equations, figures, experiments, and implementation details to their conclusion plus the reason it follows. Expand internal detail only when it changes the actual content, genuine increment, result attribution, maturity, or use. Weave a companion fact in at the point it changes that account; do not add a popularity or external-info section.
-
-Close with the applicable use and a concise overall judgment. Do not default to the five research-paper scores unless the user asks or the verified evidence already supports them. If scores are given, keep the shared comparison threshold for novelty and significance.
-
-Let headings follow the material. A natural reader order is `opening judgment → plain reconstruction and real contributions → run the mechanism → explain the result or conclusion → use`. Keep the internal map, evidence boundaries, and research checklist out of view. Favor direct affirmative sentences over repetitive contrastive verdicts or a default catalogue of caveats. Keep the output compact without fixed word counts or forced numbers of contributions, results, or objections.
-
-If the user needs the full method, implementation details, equations, experiments, figures, appendices, or exhaustive companion verification—or needs to retell, reuse, or challenge the method—recommend explicit use of `$clear-eyed-deep-reading` rather than silently turning this profile into a deep reading.
+- Cover every important claimed contribution, but keep each section short. Section 1 is two or three sentences. Section 3 is one diagram plus a short running example through the key steps. Compress other equations, figures, experiments, and implementation details to their conclusion plus the reason, unless a detail changes what the work does, what is new, why the result appears, or whether to use it.
+- Research budget: check the claims, closest earlier work, and outside signals that could change the overall verdict. Do one cheap pass around the work — any reviews or errata, a newer version, and whether the official code or project page matches the paper — and dig further only when a signal would change the verdict. Do not exhaust appendices, every equation or figure, or all six kinds of outside material.
+- Give no scores unless the user asks for them.
+- If the reader needs the full method, equations, experiments, appendices, or exhaustive checking — or wants to retell, reuse, or challenge the method — recommend `$clear-eyed-deep-reading` rather than silently going deep.

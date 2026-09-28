@@ -279,6 +279,27 @@
           "status": "final"
         }
       ]
+    },
+    "readable-output-rewrite": {
+      "title": "阅读技能易懂输出重写",
+      "summary": "按 2026-09-28 用户反馈整体重写两个阅读技能：固定六个读者问题、禁用内部术语、带数值例子走通机制、终端 Unicode 框线图取代 Mermaid；LoRA quick/deep 前向实测。",
+      "search_terms": [
+        "易懂",
+        "六个读者问题",
+        "框线图",
+        "Mermaid",
+        "终端",
+        "白话",
+        "v2.0.0"
+      ],
+      "status": "complete",
+      "documents": [
+        {
+          "type": "discussion",
+          "path": "docs/teamwork/discussions/2026-09-28-readable-output-rewrite.md",
+          "status": "final"
+        }
+      ]
     }
   }
 }
