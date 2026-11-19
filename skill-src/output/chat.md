@@ -38,7 +38,7 @@ Draw diagrams as plain-text box drawings inside a `text` code block, so they dis
 - Label each arrow with what flows along it, with sizes when known: `image 224x224`, `top-20 passages`, `score in [0,1]`.
 - Inside boxes use only short ASCII labels, so every row of a box has the same width. Wide characters such as Chinese, Japanese, or Korean text break alignment inside boxes; put explanations in the user's language to the right of the box as `← note`, where width no longer matters.
 - Start each note with `★` for a part this work adds or changes, or `○` for a reused, external, or pretrained part.
-- Before sending, check that every row of each box has the same length that each vertical line keeps one column from where it leaves a box to where its arrow enters the next, and that the arrow entering a box and the `┬` leaving it share a column.
+- Before sending, check that every row of each box has the same length, that each vertical line keeps one column from where it leaves a box to where its arrow enters the next, and that the arrow entering a box and the `┬` leaving it share a column.
 
 Format example (notes follow the user's language):
 
