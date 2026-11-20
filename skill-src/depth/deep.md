@@ -8,20 +8,20 @@ default_prompt: "Use $clear-eyed-deep-reading to rebuild this work step by step 
 
 # Deep Reading
 
-Purpose: the reader can retell the work in plain words, redraw and run the mechanism, reuse or reimplement it, and challenge the verdict.
+Purpose: full mastery — the reader finishes able to retell the work in plain words, redraw and hand-run the mechanism, reuse or reimplement it without hidden traps, and challenge the verdict.
 
 Research at full depth:
 
-- Read the full text, appendices, decisive figures and tables, equations, and the implementation or analysis details that matter. Note material differences among the paper, appendix, official code, reviews, and reproductions; do not invent missing details. Separate training from inference, observation from intervention, and assumptions from consequences when relevant.
+- Read the full text, appendices, decisive figures and tables, equations, and the implementation or analysis details that matter. Cross-check the paper, appendix, official code and configs, reviews, and reproductions; report material discrepancies plainly and never invent missing details. Separate inference from training, observation from intervention, and assumptions from consequences.
 - Check all six kinds of material around the work and cross-check them against what is new and why the result appears. Name what was not found.
-- Test each central claimed contribution against earlier work found by at least two independent routes. Stop only when further searching turns up nothing that would change an answer, and record the remaining gaps.
+- Test every important claimed contribution against earlier work found by at least two independent routes, reading primary texts until further searching is unlikely to change any of the four answers, and record remaining gaps.
 
-Write the same six sections, expanded:
+Write the same six sections, fully expanded:
 
-- **Problem:** the background needed, earlier approaches, and exactly where they fell short.
-- **How it works:** the main diagram, then every module in turn with the same running example carried through each module, dimension, state, population, or decision. Include every equation needed to follow the mechanism, with numbers. Cover implementation details that change understanding, reproduction, or the result; mention routine settings in a line.
-- **What is new:** a table row for every important contribution, and the kind of contribution each is — a new problem, dataset or measurement, representation, method, theory, evidence, tool or system integration, synthesis, reliable negative result, or replication.
-- **Why the result came out this way:** the evidential setup suited to the kind of work. For experiments: data, baselines and their fairness, metrics, main results, ablations, robustness, and failures. Guide the reader through the one to three figures that matter most — where to look and what each adds. Put findings from reviews, versions, code, and reproductions where they change the picture.
-- **Use:** who should use it, for what, with which reuse caveats, and — for a complete research paper — the five scores.
+- **Problem:** the background needed, earlier approaches, and the exact bottleneck where they fell short.
+- **How it works:** the main diagram (plus a second if training and inference or two branches genuinely differ), then every module in turn with the **same running example** carried through each module, dimension, state, population, or decision. Walk through online operation / inference end-to-end first, then explain how training teaches the trainable parts when training differs. Include every non-trivial equation needed to follow or reproduce the mechanism, with the running example's numbers plugged in. Cover implementation details that change understanding, reproduction, or the result; mention routine settings in a line.
+- **What is new:** a table row for every important claimed contribution (with primary-text check status noted on the earlier work), followed by what kind of contribution each is — a new problem, dataset or measurement, representation, method, theory, evidence, tool or system integration, synthesis, reliable negative result, or replication.
+- **Why the result came out this way:** the evidential setup suited to the kind of work. For experiments: data, baselines and their fairness, metrics, main results, ablations, robustness, and failures. Guide the reader through the 1–3 original figures that matter most — figure number, where to look, and what pattern or exception each shows. Integrate findings from reviews, versions, code, issues, and reproductions where they change the picture.
+- **Worth and use:** who should read or use it, for what, with which reproduction or deployment caveats, and — for a complete research paper — the five integer scores with evidence-based reasons.
 
-If the answer is too long for one response, split it at section boundaries (for example sections 1–3, then 4–6) rather than by page count, and do not repeat conclusions.
+If the answer is too long for one response, split it cleanly at section boundaries (for example sections 1–3, then 4–6) rather than by page count, and do not repeat conclusions.

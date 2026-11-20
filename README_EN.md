@@ -49,12 +49,12 @@ Diagrams live in a code block, so they look the same in a terminal, Claude Code,
 
 | | ⚡ `clear-eyed-reading` | 🔬 `clear-eyed-deep-reading` |
 | --- | --- | --- |
-| **Use it for** | Understanding fast and deciding whether to invest more | Full mastery before retelling, reusing, or challenging the method |
-| **How far it checks** | Every important claimed contribution; digs deeper only into claims, earlier work, and one cheap review/version/code check that could change the verdict | Full text, appendices, decisive figures, equations, implementation, plus systematic checks of reviews, versions, author materials, code, reproductions, and citation context |
-| **Output** | All six sections compressed: one diagram, one short example, details reduced to conclusion and reason; no scores by default | All six sections expanded: every module walked through with the same example, equations with numbers, figure guides, experiments and ablations, five scores |
-| **What you can do next** | Decide whether to keep reading, or switch to deep reading | Explain, redraw, reuse, and challenge the method |
+| **Use it for** | Fast 1–3 minute first screen to decide whether to invest more | Full mastery before retelling, reproducing, reusing, or challenging the method |
+| **How far it checks** | Main text core by default (skips appendices); primary-text checks on the 1–2 decisive neighbor claims plus one lightweight version/review/repo pass | Full text, appendices, decisive figures, equations, implementation, multi-route primary-text checks across claims, and all six kinds of outside material |
+| **Output** | Six tight sections (~600–1,000 English words, excluding diagram): one diagram, one short worked example, at most one novel core equation; no scores by default | All six sections expanded: every module walked through with one shared example (inference before training), equations with numbers, figure guides, ablations, five scores |
+| **What you can do next** | See what is really there and decide whether to skip or go deep | Explain, redraw, reproduce without traps, and challenge the method |
 
-Both depths ask the same questions with the same standards; they differ only in checking cost and level of detail. Quick Reading recommends `$clear-eyed-deep-reading` when exhaustive expansion is needed.
+Both depths ask the same questions with the same standards; they differ only in checking budget and level of detail. Section 3 focuses on running the mechanism while Section 4 compares claims against earlier work with explicit check tags (such as `Spatia (§3)`). Quick Reading recommends `clear-eyed-deep-reading` when exhaustive expansion is needed.
 
 ## How the Judgment Is Formed
 

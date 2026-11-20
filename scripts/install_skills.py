@@ -19,12 +19,14 @@ LEGACY_NAMES = (
 # Convenience discovery only. The skills do not depend on these harnesses.
 # Unknown platforms: pass --dest <that-harness-skills-dir>.
 DISCOVERY_DIRS = (
+    Path.home() / ".agents" / "skills",
     Path.home() / ".claude" / "skills",
     Path.home() / ".codex" / "skills",
     Path.home() / ".config" / "opencode" / "skills",
     Path.home() / ".copilot" / "skills",
     Path.home() / ".cursor" / "skills",
     Path.home() / ".gemini" / "skills",
+    Path.home() / ".gemini" / "config" / "skills",
     Path.home() / ".hermes" / "skills",
     Path.home() / ".kiro" / "skills",
 )

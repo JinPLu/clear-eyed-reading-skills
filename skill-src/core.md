@@ -4,7 +4,7 @@ Goal: a reader with no background finishes knowing what the work actually does, 
 
 ## Four questions to answer
 
-These drive the research. The writing section below says how to present the answers.
+These drive the research. The depth profile sets how far to check, and the writing section says how to present the answers.
 
 1. **What does it actually do?** Strip the names: what goes in, what happens at each step, what comes out.
 2. **Where does the ability come from?** Which parts come from this work, and which from data, pretrained models, earlier methods, rules, labels, human choices, instruments, scale, tuning, post-processing, or the evaluation setup.
@@ -13,18 +13,18 @@ These drive the research. The writing section below says how to present the answ
 
 ## How to research
 
-- Identify the exact work and version (preprint version, venue version). Read the primary text; never fill gaps from an abstract, caption, search snippet, or guess. Say plainly what you could not check. Do not bypass CAPTCHAs, logins, or other access controls; report the source as unchecked.
-- List every contribution the authors claim — title, abstract, contribution list, named modules, method, figures, experiments, conclusion. Treat each as a claim to check, not as the outline of your explanation.
-- For each claim, find the closest earlier work by more than one route: search, the work's references, later work citing it, older names for the same idea, neighboring fields. Compare against the earlier work's primary text, not its abstract. If the primary text is inaccessible, you may rely on a reliable secondary description such as a survey, but say so where the comparison is used. For supporting context that does not decide a judgment, an abstract is acceptable if you say so. Citation counts, downloads, and attention help find candidates; they never prove novelty or significance.
+- Follow the depth profile below for reading scope, number of primary-text neighbor checks, and outside-material budget. Spend effort where a check could change the verdict.
+- Identify the exact work and version (preprint version, venue version). Within your depth scope, read the primary text; never fill gaps from an abstract, caption, search snippet, or guess. Say plainly what you could not check. Do not bypass CAPTCHAs, logins, or other access controls; report the source as unchecked.
+- Inventory the contributions the authors claim — title, abstract, contribution list, named modules, method, experiments, conclusion — and treat each as a claim to check, not as the outline of your explanation.
+- When checking a claim against earlier work, look beyond the paper's own Related Work (via search, references, citing work, older names for the same idea, or neighboring fields) and compare against the earlier work's primary text, not its abstract. If the primary text is inaccessible, you may use a reliable secondary source such as a survey and mark that in the comparison; for background or secondary claims outside a quick budget, cite the basis honestly rather than pretending the primary text was checked. Citation counts, downloads, and attention help find candidates; they never prove novelty or significance.
 - Before accepting the authors' explanation of the result, ask what else could produce it.
-- Look at decisive figures and tables yourself. Keep apart what you observed, what the authors say, external facts, your inference, and unknowns. Visual appeal is not evidence.
-- Spend effort in proportion to risk: claims about novelty, significance, causation, reuse readiness, or the absence of a weakness need the strongest evidence. The depth profile sets the overall budget. Stop when more searching is unlikely to change the four answers, not at a fixed paper count.
-- If independent subagents are available and allowed, you may split the checks — earlier work on the problem, earlier work on each component, other explanations of the result, material around the work — and reconcile afterwards. Otherwise do the same checks yourself in sequence.
-- If outside research is impossible, answer from the work alone and say which judgments (novelty, field position, other explanations, material around the work) are unchecked. Do not score novelty or significance in that case.
+- Inspect decisive figures and tables yourself. Keep apart what you observed, what the authors say, external facts, your inference, and unknowns. Visual appeal is not evidence.
+- If independent subagents are available and allowed, you may split checks within your depth budget — earlier work on the problem, earlier work on key components, rival explanations of the result, material around the work — and reconcile afterwards. Otherwise run the checks yourself in sequence.
+- If outside research is impossible, answer from the work alone and say which judgments (novelty, field position, rival explanations, material around the work) are unchecked. Do not score novelty or significance in that case.
 
 ## Material around the work
 
-A work is more than its main text. When it can answer a real question, check:
+A work is more than its main text. Within your depth budget, check what can answer a real question:
 
 1. peer reviews, rebuttals, errata, retractions, acceptance status;
 2. version changes — claims or tables added, narrowed, or dropped;
@@ -35,7 +35,7 @@ A work is more than its main text. When it can answer a real question, check:
 
 For clinical and other empirical studies, the trial registry, protocol, analysis plan, ethics approval, and data-availability statement play the role of items 1–2; a switched primary outcome is often the strongest signal.
 
-This material tells you about maturity, reproducibility, claim stability, reusability, and caveats. What is new is still decided by the work and its closest earlier work. Popularity counts and headlines prove nothing about novelty, and neither does silence; concrete adoption facts, such as support in a maintained library or documented downstream use, do inform reusability. Take verifiable facts from reviews and issues (does not install, numbers differ, ablation missing, outcome replaced), not their tone. Do not judge people by identity, institution, funder, or compute; mention these only as sources of ability or conditions for reproduction. If something cannot be found, say so; do not infer from absence.
+This material calibrates maturity, reproducibility, claim stability, reusability, and caveats. What is new is still decided by the work and its closest earlier work. Popularity counts and headlines prove nothing about novelty, and neither does silence; concrete adoption facts, such as support in a maintained library or documented downstream use, do inform reusability. Take verifiable facts from reviews and issues (does not install, config differs, ablation missing, outcome replaced), not their tone. Do not judge people by identity, institution, funder, or compute; mention these only as sources of ability or conditions for reproduction. If something cannot be found, say so; do not infer from absence.
 
 ## Different kinds of work
 
@@ -43,7 +43,7 @@ Adapt what counts as evidence: identification and rival explanations for causal 
 
 ## Scores
 
-Only for a complete research paper, and only when the depth profile or the user calls for them: give separate integer scores out of 10 for novelty, rigor, significance, clarity, and reproducibility, each with one evidence-based reason and no total. Score novelty and significance only after comparison with the closest earlier work establishes them; otherwise leave them unscored and name the missing comparison.
+Only for a complete research paper, and only when the depth profile or the user calls for them: give separate integer scores out of 10 for novelty, rigor, significance, clarity, and reproducibility, each with one evidence-based reason and no total. Score novelty and significance only after primary-text comparison with the closest earlier work establishes them; otherwise leave them unscored and name the missing comparison.
 
 ## Safety
 

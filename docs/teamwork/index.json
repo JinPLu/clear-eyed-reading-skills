@@ -300,6 +300,28 @@
           "status": "final"
         }
       ]
+    },
+    "budget-separation-and-v3-redesign": {
+      "title": "祛魅阅读 v3 再设计：快慢档预算解耦、章节去重与评测契约对齐",
+      "summary": "基于静态审计与 LiveWorld/SWE-bench 前向盲测解耦 core 与 quick/deep 预算，消除第 3/4 节复述与脱节训练公式，增加近邻核查标记，重写对齐 40 条 evals/cases.yaml，并补齐 sync_skills.py --check 校验与多宿主安装目录；同题 LiveWorld quick 复验通过。",
+      "search_terms": [
+        "v3",
+        "预算解耦",
+        "快筛",
+        "公式纪律",
+        "核查标记",
+        "evals",
+        "LiveWorld",
+        "SWE-bench"
+      ],
+      "status": "complete",
+      "documents": [
+        {
+          "type": "discussion",
+          "path": "docs/teamwork/discussions/2026-11-20-budget-separation-and-v3-redesign.md",
+          "status": "final"
+        }
+      ]
     }
   }
 }

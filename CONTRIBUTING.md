@@ -15,11 +15,11 @@
 
 ## 提交前检查
 
-- YAML frontmatter 只有 `name` 和 `description`。
+- 生成的 `SKILL.md` YAML frontmatter 只包含 `name`、`description`、`disable-model-invocation: true` 和 `argument-hint`（均由 `scripts/sync_skills.py` 生成，禁止手改）。
 - 文件夹名与 `name` 一致。
 - `agents/openai.yaml` 的默认提示明确包含 `$skill-name`。
 - `agents/openai.yaml` 保持 `allow_implicit_invocation: false`，且不成为核心 Skill 的运行依赖。
-- 运行 `python3 scripts/sync_skills.py --check`，确认生成文件与 `skill-src/` 一致。
+- 运行 `python3 scripts/sync_skills.py --check`，确认生成文件无漂移、frontmatter 合法且 `evals/cases.yaml` 结构校验通过。
 - 安装说明保持 harness 无关：可复制到任意 Skills 目录；`scripts/install_skills.py` 不得把单一平台写成默认宿主。
 - 修改 `skill-src/` 后先运行不带 `--check` 的同步脚本生成结果，再审阅两个 `SKILL.md` 和两个 `agents/openai.yaml`；`--check` 只检测漂移。
 - 快速导读不会自动展开逐节精读。

@@ -17,9 +17,9 @@ Keep each skill self-contained. Do not add per-skill READMEs or changelogs, and 
 There is no build step or package manager. Useful checks are:
 
 ```sh
+python3 scripts/sync_skills.py --check
 git diff --check
 git diff -- skills/ evals/ README.md README_EN.md
-rg 'name:|description:' skills/*/SKILL.md
 ```
 
 `git diff --check` catches whitespace errors. Review the focused diff before committing, and run the relevant prompts from `evals/cases.yaml` in the target agent harness. At minimum, exercise cases for any routing, language, safety, or output-format behavior you changed.
