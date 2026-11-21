@@ -1,0 +1,339 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Clear-Eyed Reading — SWE-bench Demo</title>
+<style>
+  :root {
+    --paper: #F6F0E2;
+    --term-bg: #17181C;
+    --term-bar: #22242A;
+    --term-code: #101114;
+    --term-border: #32353E;
+    --ink: #ECE9E1;
+    --muted: #9B988E;
+    --dim: #6E6C64;
+    --amber: #F0A83C;
+    --teal: #5CC2CE;
+    --green: #73C991;
+    --rule: #2A2D35;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; background: var(--paper); }
+  body {
+    padding: 26px 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Helvetica Neue", sans-serif;
+    background-image: radial-gradient(rgba(120,100,60,.07) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+  .window {
+    background: var(--term-bg);
+    border: 1.5px solid var(--term-border);
+    border-radius: 14px;
+    box-shadow: 0 14px 36px rgba(24, 22, 18, 0.22);
+    overflow: hidden;
+    color: var(--ink);
+  }
+  .titlebar {
+    background: var(--term-bar);
+    border-bottom: 1px solid var(--term-border);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot.r { background: #FF5F56; }
+  .dot.y { background: #FFBD2E; }
+  .dot.g { background: #27C93F; }
+  .title {
+    margin-left: 10px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .badge {
+    margin-left: auto;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--amber);
+    background: rgba(240, 168, 60, 0.12);
+    border: 1px solid rgba(240, 168, 60, 0.35);
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .content { padding: 18px 24px 22px; display: flex; flex-direction: column; gap: 13px; }
+  .prompt-box {
+    background: rgba(255,255,255,0.035);
+    border: 1px solid var(--term-border);
+    border-radius: 8px;
+    padding: 9px 13px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 14px;
+    color: #FFFFFF;
+    display: flex;
+    gap: 9px;
+    align-items: baseline;
+  }
+  .prompt-box .chev { color: var(--amber); font-weight: 700; }
+  .prompt-box .cmd { color: var(--teal); font-weight: 600; }
+  .trace {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 2px;
+  }
+  .trace .ok { color: var(--green); }
+  .sec { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--rule); padding-top: 11px; }
+  .sec:first-of-type { border-top: none; padding-top: 2px; }
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: 0.2px;
+  }
+  p, li {
+    font-size: 13.8px;
+    line-height: 1.52;
+    color: var(--ink);
+  }
+  body.zh p, body.zh li { font-size: 14px; line-height: 1.58; }
+  .scope { font-size: 12.5px; color: var(--muted); }
+  code {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    background: rgba(255,255,255,0.07);
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: #F4EFE6;
+  }
+  b, strong { color: #FFFFFF; font-weight: 650; }
+  .hl { color: var(--amber); font-weight: 650; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+    margin-top: 2px;
+  }
+  pre.diag {
+    background: var(--term-code);
+    border: 1px solid var(--term-border);
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-family: Menlo, "SF Mono", Monaco, monospace;
+    font-size: 12.2px;
+    line-height: 1.06;
+    color: #E5E2D9;
+    white-space: pre;
+  }
+  pre.diag .new { color: var(--amber); font-weight: 600; }
+  pre.diag .old { color: var(--muted); }
+  ol.steps { padding-left: 19px; display: flex; flex-direction: column; gap: 5px; }
+  ol.steps li { font-size: 13.2px; line-height: 1.46; }
+  body.zh ol.steps li { font-size: 13.5px; line-height: 1.54; }
+  .scale-note { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.6px;
+    line-height: 1.42;
+    margin-top: 2px;
+  }
+  body.zh table { font-size: 13px; line-height: 1.48; }
+  th, td {
+    border: 1px solid var(--term-border);
+    padding: 5px 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #202229; color: #F5F2EA; font-weight: 650; }
+  td { color: #DFDCD3; }
+  ul.bullets { padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+  ul.bullets li { font-size: 13.3px; line-height: 1.46; }
+  body.zh ul.bullets li { font-size: 13.6px; line-height: 1.52; }
+</style>
+</head>
+<body>
+<div class="window">
+  <div class="titlebar">
+    <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+    <span class="title" id="win-title"></span>
+    <span class="badge" id="win-badge"></span>
+  </div>
+  <div class="content" id="root"></div>
+</div>
+
+<script>
+const DATA = {
+  en: {
+    winTitle: "agent session — clear-eyed-reading (Quick Reading · ~2 min)",
+    winBadge: "arXiv:2310.06770 · SWE-bench",
+    cmd: "/clear-eyed-reading",
+    arg: "https://arxiv.org/abs/2310.06770",
+    trace: "Checked arXiv:2310.06770v3 vs v1 · Primary texts: Defects4J-NL2Fix & BugsInPy · Repo & 2024/2026 SWE-bench Verified audits",
+    sections: `
+      <div class="sec">
+        <h2>1. What does it actually do in one sentence?</h2>
+        <p><b>SWE-bench</b> turns 2,294 merged GitHub pull requests across 12 Python libraries into an automated coding exam: given only an issue ticket and the full ~438K-line pre-fix repository, a system must write a patch that passes the human PR's hidden tests (§1–2). Its real advance is scaling issue-to-patch evaluation from pre-isolated single functions to unpruned repositories via automated PR test mining — though scores mix model skill with search scaffolding and carry noisy PR tests (<code>68.3%</code> later discarded in <code>Verified</code>) plus pretraining leakage.</p>
+      </div>
+      <div class="sec">
+        <h2>2. What problem does it solve?</h2>
+        <p>Benchmarks like <code>HumanEval</code> test short, self-contained functions from clean docstrings (§1). Real maintenance means reading a 195-word bug report, locating the right modules among ~3,010 files, and editing multiple functions without breaking existing tests — whereas prior bug datasets either exposed failing tests or pre-isolated the buggy function (<code>Defects4J-NL2Fix</code>, §3.1).</p>
+      </div>
+      <div class="sec">
+        <h2>3. How does it work?</h2>
+        <div class="mech-grid">
+<pre class="diag">  ~90k GitHub PRs (12 repos)
+          │
+          ▼
+┌───────────────────┐
+│ 3-stage PR filter │ <span class="new">← ★ mines 2,294 tasks</span>
+└─────────┬─────────┘
+          │ issue + repo (3,010 files)
+          ▼
+┌───────────────────┐
+│ BM25 retriever    │ <span class="old">← ○ keyword file search</span>
+└─────────┬─────────┘
+          │ top files (13k-50k tok)
+          ▼
+┌───────────────────┐
+│ Language model    │ <span class="old">← ○ LLM (or ★ SWE-Llama)</span>
+└─────────┬─────────┘
+          │ candidate .diff patch
+          ▼
+┌───────────────────┐
+│ Repo test harness │ <span class="new">← ★ runs hidden PR tests</span>
+└─────────┬─────────┘
+          ▼
+   Resolved (1 / 0)</pre>
+          <div>
+            <ol class="steps">
+              <li><b>Mine &amp; split (<code>sphinx-8713</code>, §5.1):</b> Keep PR #8713 because it closes an issue and flips ≥1 PR test from fail to pass (<code>fail-to-pass</code>). Give the model the issue + pre-fix repo; hide the PR's test diff.</li>
+              <li><b>Retrieve files (§4.1):</b> Whole repos exceed context limits, so <code>BM25</code> ranks files by word overlap with the issue (vs. diagnostic <code>oracle</code> feeding edited <code>docstring.py</code>, 20.9K tokens).</li>
+              <li><b>Generate diff (§4.2):</b> The model emits a unified <code>.diff</code> editing line 684 of <code>docstring.py</code>, forgetting to guard on <code>napoleon_use_param</code>.</li>
+              <li><b>Grade in repo env (§2.2):</b> Apply candidate diff + hidden PR tests; regression test fails when <code>use_param=False</code>, scoring <code>0</code> (must pass all new + existing tests for <code>1</code>).</li>
+            </ol>
+            <p class="scale-note">Real scale: 2,294 test tasks (avg. 3,010 files, 438K LoC, 9.1 fail-to-pass &amp; 120.8 total tests, Table 1) + 10K oracle-file pairs tuning <code>SWE-Llama</code> 7B/13B.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sec">
+        <h2>4. What is actually new?</h2>
+        <table>
+          <thead><tr><th>Claimed part</th><th>Already existed (closest earlier work)</th><th>What this work changed</th><th>Lost without this change</th></tr></thead>
+          <tbody>
+            <tr><td><b>Repo-scale issue→patch</b></td><td><code>Defects4J-NL2Fix</code> (arXiv:2304.03816 §3.1, primary text): issue + hidden tests on 283 isolated Java methods</td><td class="hl">Hands over the unpruned 3,010-file repo; gold fixes span 1.7 files / 32.8 lines</td><td>Repo-wide localization and multi-file coordination</td></tr>
+            <tr><td><b>Automated PR mining</b></td><td><code>BugsInPy</code> (arXiv:2401.15481 §2, primary text): 493 Python bugs (~831 human hrs of manual isolation)</td><td class="hl">Mines ~90K PRs automatically via linked issues + fail-to-pass test execution</td><td>Low-cost scale &amp; refresh (at the cost of uncleaned PR tests)</td></tr>
+            <tr><td><b><code>SWE-Llama</code> &amp; BM25 baseline</b></td><td><code>CodeLlama</code> + <code>LoRA</code> (per §3); standard <code>BM25</code> + Unix <code>patch</code></td><td>Tunes 7B/13B on 10K oracle-file diffs; prompts with 13K–50K retrieved tokens</td><td>Baseline plumbing only; drops to <code>0.70%</code> under BM25 (Table 5)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sec">
+        <h2>5. Why did the result come out this way — should I believe it?</h2>
+        <ul class="bullets">
+          <li><b>One-shot scaffold bottleneck:</b> Claude 2's headline <code>1.96%</code> (Opus <code>3.79%</code> in v3, Table 5) mostly reflects bad retrieval + patch syntax (<code>BM25</code> misses gold files in <code>60.2%</code> of tasks; <code>% Apply</code> is just <code>26.9%</code> for GPT-4-turbo). Multi-turn agent scaffolds later jumped the same models 10x+.</li>
+          <li><b>68.3% underspecified or brittle tasks:</b> OpenAI &amp; the authors' 2024 human audit (<code>SWE-bench Verified</code>) rejected <code>68.3%</code> of sampled tasks (<code>38.3%</code> vague tickets, <code>61.1%</code> narrow PR tests rejecting valid fixes); a Feb 2026 audit found <code>59.4%</code> of hard <code>Verified</code> items still flawed plus verbatim pretraining recall.</li>
+        </ul>
+      </div>
+      <div class="sec">
+        <h2>6. Is it worth my time, and how would I use it?</h2>
+        <p>Read <b>§2 &amp; §5</b> if you build coding agents or benchmarks; skip <code>SWE-Llama</code> (§3). Use the Dockerized harness at <code>SWE-bench/SWE-bench</code> (MIT, ~120 GB disk), hold agent scaffolds fixed when comparing models, drop the noisy 2,294-task Full split, and evaluate new frontier weights on contamination-checked post-cutoff splits (<code>SWE-bench Pro</code> / live forks).</p>
+      </div>
+    `
+  },
+  zh: {
+    winTitle: "agent session — clear-eyed-reading（快速导读 · 约 2 分钟）",
+    winBadge: "arXiv:2310.06770 · SWE-bench",
+    cmd: "/clear-eyed-reading",
+    arg: "https://arxiv.org/abs/2310.06770",
+    trace: "已核对 arXiv:2310.06770v3 与 v1 · 最近邻原文：Defects4J-NL2Fix & BugsInPy · 官方仓库及 2024/2026 SWE-bench Verified 审计",
+    sections: `
+      <div class="sec">
+        <h2>1. 一句话怎么看？</h2>
+        <p><b>SWE-bench</b> 从 12 个热门 Python 开源库的历史记录中自动筛出 2,294 道考题：只给原始用户报障（Issue）和平均 43.8 万行的修复前完整代码库，要求系统写出能通过开发者隐藏测试的补丁（§1–2）。它真正的推进是用“测试先败后胜”全自动过滤取代传统缺陷库的人工精修，把评测从单函数补全推向全仓修改；但原版混入了近七成欠规范题目（<code>Verified</code> 剔除 <code>68.3%</code>），且原文不到 <code>2%</code> 的低分大半卡在简陋的单轮检索脚手架。</p>
+      </div>
+      <div class="sec">
+        <h2>2. 它要解决什么问题？</h2>
+        <p><code>HumanEval</code> 等榜单只给函数签名考百行内孤立算法，很快刷满（§1）。真实软件维护要读百余词报障，在平均 3,010 个文件中跨模块定位修改且不改坏旧功能；而早先缺陷库要么暴露触发测试，要么像 <code>Defects4J-NL2Fix</code>（§3.1）那样预先抠出单函数喂给模型。</p>
+      </div>
+      <div class="sec">
+        <h2>3. 它是怎么运转的？</h2>
+        <div class="mech-grid">
+<pre class="diag">  ~90k GitHub PRs (12 repos)
+          │
+          ▼
+┌───────────────────┐
+│ 3-stage PR filter │ <span class="new">← ★ 自动筛出 2,294 道先败后胜考题</span>
+└─────────┬─────────┘
+          │ issue + repo (3,010 files)
+          ▼
+┌───────────────────┐
+│ BM25 retriever    │ <span class="old">← ○ 现成关键词搜文件</span>
+└─────────┬─────────┘
+          │ top files (13k-50k tok)
+          ▼
+┌───────────────────┐
+│ Language model    │ <span class="old">← ○ 现成底座（或 ★ 微调 SWE-Llama）</span>
+└─────────┬─────────┘
+          │ candidate .diff patch
+          ▼
+┌───────────────────┐
+│ Repo test harness │ <span class="new">← ★ 沙盒打补丁并跑隐藏测试判分</span>
+└─────────┬─────────┘
+          ▼
+   Resolved (1 / 0)</pre>
+          <div>
+            <ol class="steps">
+              <li><b>离线拆题（<code>sphinx-8713</code>，§5.1）：</b>合并 PR #8713 因关联报障且至少 1 个测试在修复前败、修复后胜（<code>fail-to-pass</code>）而入库；公开报障与旧代码库，藏起测试补丁。</li>
+              <li><b>检索缩窗（§4.1）：</b>全仓塞不进窗口，基线用 <code>BM25</code> 按词频挑出文件拼入提示词（另设直接喂真实被改文件 <code>docstring.py</code> 的 <code>oracle</code> 对照）。</li>
+              <li><b>单轮生补丁（§4.2）：</b>模型不跑代码盲写出 <code>.diff</code>，改了第 684 行却漏写 <code>napoleon_use_param</code> 开关判断。</li>
+              <li><b>沙盒判分（§2.2）：</b>打入候选补丁与隐藏测试跑 <code>pytest</code>；默认参数回归测试挂掉，判 <code>0</code> 分（必过与回归测试全绿才记 <code>1</code> 分）。</li>
+            </ol>
+            <p class="scale-note">真实规模：12 库 2,294 题（均 3,010 文件、43.8 万行，每题跑 9.1 个新增与 120.8 个总测试，表 1）；另采 1 万条微调 <code>SWE-Llama</code> 7B/13B。</p>
+          </div>
+        </div>
+      </div>
+      <div class="sec">
+        <h2>4. 到底新在哪里？</h2>
+        <table>
+          <thead><tr><th>模块 / 主张</th><th>此前已有（最近邻先验）</th><th>本文改了什么</th><th>拿掉这一步会损失什么</th></tr></thead>
+          <tbody>
+            <tr><td><b>全仓报障→补丁任务</b></td><td><code>Defects4J-NL2Fix</code>（arXiv:2304.03816 §3.1，已核原文）：工单+隐藏测试，但限 283 个预先抠出的单函数</td><td class="hl">撤掉单函数定位拐杖，直接给 3,010 文件完整仓库（答案均跨 1.7 文件改 32.8 行）</td><td>退回已知位置改局部函数，测不出全仓自主定位与跨文件协调</td></tr>
+            <tr><td><b>三阶段自动筛 PR</b></td><td><code>BugsInPy</code>（arXiv:2401.15481 §2，已核原文）：17 个 Python 库 493 题，耗 831 人时手工剥离</td><td class="hl">用“关联工单 + 改测试 + 实跑先败后胜”从 9 万 PR 自动筛出 2,294 题</td><td>题量停留在数百题且难滚动扩充；代价是混入大批欠规范脏题</td></tr>
+            <tr><td><b><code>SWE-Llama</code> 与检索基线</b></td><td><code>CodeLlama</code> + <code>LoRA</code>（据 §3）；标准 <code>BM25</code> 与 Unix <code>patch</code></td><td>在 1 万条给答案文件数据上微调吐补丁，配 13K–50K 检索基线</td><td>仅少一组静态下界基线；真实 <code>BM25</code> 下解决率跌至 <code>0.70%</code>（表&nbsp;5）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sec">
+        <h2>5. 结果为什么长这样——该信多少？</h2>
+        <ul class="bullets">
+          <li><b>1.96% 低分主因是单轮盲写脚手架残缺：</b>27K 窗口下 <code>BM25</code> 在 <code>60.2%</code> 题目漏掉答案文件（表 3），GPT-4-turbo 吐出的补丁仅 <code>26.9%</code> 能合法打入（表 5）；后续不动模型权重、仅换多轮交互脚手架（如 <code>SWE-agent</code>）分数即暴涨近 10 倍，榜单测的是“模型+脚手架”。</li>
+          <li><b>近七成原题欠规范 + 预训练背题污染：</b>2024 年 OpenAI 联合原作者人工三审（<code>SWE-bench Verified</code>）筛掉 <code>68.3%</code> 原题（<code>38.3%</code> 题干缺条件、<code>61.1%</code> 测试过死板误杀正确解）；2026 年复审又查出难例硬伤与前沿模型逐字默写历史补丁，宣布停用 <code>Verified</code>。</li>
+        </ul>
+      </div>
+      <div class="sec">
+        <h2>6. 值得花时间吗？现在该怎么用？</h2>
+        <p>做代码智能体或评测非常值得读 <b>§2 与 §5</b>（跳过已淘汰的 §3 <code>SWE-Llama</code>）。实测用官方 Docker 评测器 <code>SWE-bench/SWE-bench</code>（MIT，需约 120 GB 磁盘），对比模型必须锁定同一脚手架与轮数预算；内部消融可用 <code>Verified</code>，测新模型泛化应转向截点后的抗污染基准（如 <code>SWE-bench Pro</code> / 动态新题集）。</p>
+      </div>
+    `
+  }
+};
+
+const lang = location.hash === "#en" ? "en" : "zh";
+const D = DATA[lang];
+document.body.classList.add(lang);
+document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+document.getElementById("win-title").textContent = D.winTitle;
+document.getElementById("win-badge").textContent = D.winBadge;
+document.getElementById("root").innerHTML = `
+  <div class="prompt-box"><span class="chev">❯</span><span><span class="cmd">${D.cmd}</span> ${D.arg}</span></div>
+  <div class="trace"><span class="ok">●</span><span>${D.trace}</span></div>
+  ${D.sections}
+`;
+</script>
+</body>
+</html>
