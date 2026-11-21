@@ -8,7 +8,7 @@ This repository packages two complementary reading skills:
 - `skills/clear-eyed-deep-reading/` contains the exhaustive paper-reading workflow.
 - Each skill keeps its core instructions in `SKILL.md` and optional OpenAI interface metadata in `agents/openai.yaml`.
 - `evals/cases.yaml` holds shared routing and behavior regression cases.
-- `assets/` contains diagrams used by the bilingual `README.md` and `README_EN.md`.
+- `assets/` contains diagrams used by the bilingual `README.md` (English) and `README_ZH.md` (Simplified Chinese).
 
 Keep each skill self-contained. Do not add per-skill READMEs or changelogs, and do not merge the quick and deep workflows.
 
@@ -19,7 +19,7 @@ There is no build step or package manager. Useful checks are:
 ```sh
 python3 scripts/sync_skills.py --check
 git diff --check
-git diff -- skills/ evals/ README.md README_EN.md
+git diff -- skills/ evals/ README.md README_ZH.md
 ```
 
 `git diff --check` catches whitespace errors. Review the focused diff before committing, and run the relevant prompts from `evals/cases.yaml` in the target agent harness. At minimum, exercise cases for any routing, language, safety, or output-format behavior you changed.

@@ -45,8 +45,8 @@ body:
   - type: input
     id: environment
     attributes:
-      label: 使用环境
-      placeholder: ChatGPT Web / ChatGPT Desktop / Codex
+      label: Harness / 使用环境
+      placeholder: Claude Code / Codex / Cursor / Gemini / OpenCode
   - type: checkboxes
     id: privacy
     attributes:
