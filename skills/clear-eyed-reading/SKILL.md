@@ -1,6 +1,6 @@
 ---
 name: clear-eyed-reading
-description: Fast first-screen read of a research paper, review, technical blog, commentary, or other article in plain language, covering what it actually does once names and branding are stripped away, how it works through a text diagram and one compact worked example, what is really new versus earlier work, where its ability comes from, why its result came out that way, and its practical and community value (experimental completeness, manuscript richness, citations, GitHub stars, Hugging Face votes). Available only when the user explicitly invokes this skill. Do not use for exhaustive section-by-section, figure-by-figure, equation, experiment, appendix, or outside-source coverage; full translation; formal peer review; or accept/reject recommendation.
+description: Fast first-screen read of a research paper, review, technical blog, commentary, or other article in plain language, covering what it actually does once names and branding are stripped away, how it works through a text diagram and one compact worked example, what is really new versus earlier work, where its ability comes from, why its result came out that way, and its practical and community value (venue/tier, experimental completeness, manuscript richness, citations, GitHub stars, Hugging Face votes). Available only when the user explicitly invokes this skill. Do not use for exhaustive section-by-section, figure-by-figure, equation, experiment, appendix, or outside-source coverage; full translation; formal peer review; or accept/reject recommendation.
 disable-model-invocation: true
 argument-hint: "<paper URL, arXiv id, DOI, or local file>"
 ---
@@ -23,7 +23,7 @@ These drive the research. The depth profile sets how far to check, and the writi
 ## How to research
 
 - Follow the depth profile below for reading scope, number of primary-text neighbor checks, and outside-material budget. Spend effort where a check could change the verdict.
-- Identify the exact work, publication/release date, and version (preprint version, venue version). Within your depth scope, read the primary text; never fill gaps from an abstract, caption, search snippet, or guess. Say plainly what you could not check. Do not bypass CAPTCHAs, logins, or other access controls; report the source as unchecked.
+- Identify the exact work, publication/release date, venue and presentation tier (journal, conference Oral/Spotlight/Poster, workshop, or unrefereed preprint), and version. Within your depth scope, read the primary text; never fill gaps from an abstract, caption, search snippet, or guess. Say plainly what you could not check. Do not bypass CAPTCHAs, logins, or other access controls; report the source as unchecked.
 - Inventory the contributions the authors claim — title, abstract, contribution list, named modules, method, experiments, conclusion — and treat each as a claim to check, not as the outline of your explanation.
 - When checking a claim against earlier work, look beyond the paper's own Related Work (via search, references, citing work, older names for the same idea, or neighboring fields) and compare against the earlier work's primary text, not its abstract. If the primary text is inaccessible, you may use a reliable secondary source such as a survey and mark that in the comparison; for background or secondary claims outside a quick budget, cite the basis honestly rather than pretending the primary text was checked. Citation counts, GitHub stars, Hugging Face votes, and downloads help find candidates and inform adoption and community value, but never prove algorithmic novelty.
 - Before accepting the authors' explanation of the result, ask what else could produce it, and check **experimental completeness and manuscript richness** — whether baselines, ablations, stress/scaling tests, failure analyses, visual evidence, and implementation details are thorough or thin and selective.
@@ -35,7 +35,7 @@ These drive the research. The depth profile sets how far to check, and the writi
 
 A work is more than its main claims. Within your depth budget, check what answers a real question:
 
-1. peer reviews, rebuttals, errata, retractions, acceptance status;
+1. publication venue and tier (journal, conference Oral/Spotlight/Poster, workshop, or unrefereed preprint), peer reviews, rebuttals, errata, retractions;
 2. version changes — claims or tables added, narrowed, or dropped;
 3. author materials — project page, demo, talk, slides, blog, thesis chapter;
 4. code and artifacts — repository, configs, weights, model or dataset cards, evaluation scripts, licenses;
@@ -48,9 +48,9 @@ When judging **overall paper worth and community value**, weigh three dimensions
 
 - **Manuscript richness and experimental completeness:** breadth of baselines, ablations, scaling/robustness checks, failure analysis, diagnostic figures/tables, and reproduction details;
 - **Concrete community value:** reusable code, weights, datasets, evaluation harnesses, or durable empirical lessons left to practitioners — a simple method with exhaustive ablations and rock-solid open artifacts can have high community value;
-- **Time-contextualized traction:** Semantic Scholar / Google Scholar citations, GitHub stars, and Hugging Face votes or adoption interpreted relative to publication age (a new preprint naturally has near-zero counts; an older work's sustained adoption or silence carries more weight).
+- **Venue standing and time-contextualized traction:** publication venue and tier (journal, conference Oral/Spotlight/Poster, workshop, or unrefereed preprint) alongside Semantic Scholar / Google Scholar citations, GitHub stars, and Hugging Face votes or adoption interpreted relative to publication age (a new preprint naturally has no venue or citations yet; an older work's venue tier and sustained adoption or silence carry more weight).
 
-What is algorithmically new is still decided strictly by primary-text comparison with the closest earlier work, and high traction never excuses flawed evidence or failed reproductions. Take verifiable facts from reviews and issues (does not install, config differs, ablation missing, outcome replaced), not their tone. Do not judge people by identity, institution, funder, or compute; mention these only as sources of ability or conditions for reproduction. Never guess traction numbers; if a metric cannot be checked, say so and do not infer from absence.
+What is algorithmically new is still decided strictly by primary-text comparison with the closest earlier work, and neither a prestigious venue/Oral tag nor high traction excuses flawed evidence or failed reproductions. Take verifiable facts from reviews and issues (does not install, config differs, ablation missing, outcome replaced), not their tone. Do not judge people by identity, institution, funder, or compute; mention these only as sources of ability or conditions for reproduction. Never guess traction numbers; if a metric cannot be checked, say so and do not infer from absence.
 
 ## Different kinds of work
 
@@ -72,7 +72,7 @@ Research budget (strict ceiling — do not turn Quick Reading into Deep Reading)
 
 - **Main text core + completeness scan:** read the abstract, introduction, core method, main results table or decisive figure, and conclusion, and note at a glance how complete the manuscript and experiments are (whether ablations, stress tests, failure analysis, and substantial appendices exist). Do not read appendices line by line unless a central step or metric in the main text is undefined without them.
 - **1–2 primary-text neighbor checks:** open and compare primary texts only for the 1–2 central claims that decide whether the work is genuinely new. For secondary rows in Section 4, rely on the paper's own baseline/reference context and mark them honestly (for example, `per §2, primary text not rechecked`).
-- **One lightweight outside & traction pass:** run a single quick check for a newer version or retraction, major public-review flaws, official repo status, and headline traction metrics — Semantic Scholar or Google Scholar citations, GitHub stars, and Hugging Face paper votes or model/dataset likes (noted alongside publication date). Dig into code files, issue threads, or later audits only when an immediate red flag could flip the overall verdict.
+- **One lightweight outside & traction pass:** run a single quick check for publication venue and tier (journal, conference Oral/Spotlight/Poster, or preprint), newer versions or retractions, major public-review flaws, official repo status, and headline traction metrics — Semantic Scholar or Google Scholar citations, GitHub stars, and Hugging Face paper votes or model/dataset likes (noted alongside publication date). Dig into code files, issue threads, or later audits only when an immediate red flag could flip the overall verdict.
 
 Compression rules:
 
@@ -80,7 +80,7 @@ Compression rules:
 - Section 1 is 2–3 sentences plus one short scope line.
 - Section 3 has one diagram and one compact worked example in short numbered steps (1–2 sentences per step; no nested sub-bullets). Include **at most one equation**, and only when this work introduces or modifies it and the core mechanism is unclear without it; explain standard or borrowed formulas in plain words only.
 - Compress ablations, secondary experiments, figures, and implementation details to their conclusion plus a one-clause reason, while noting in Section 5 whether experimental coverage is thorough or thin.
-- In Section 6, include a compact **value snapshot** (manuscript/experimental completeness, concrete community value, and checked Scholar citations / GitHub stars / HF votes relative to release age). Give **no integer scores** unless the user explicitly asks for them.
+- In Section 6, include a compact **value snapshot** (publication venue/tier, manuscript/experimental completeness, concrete community value, and checked Scholar citations / GitHub stars / HF votes relative to release age). Give **no integer scores** unless the user explicitly asks for them.
 - If the user asks for full-paper or appendix coverage, reproduction-grade equations and code checks, or exhaustive literature and companion verification, deliver this quick screen first and recommend `clear-eyed-deep-reading` rather than silently expanding.
 
 # Writing the Answer
@@ -93,7 +93,7 @@ Write for a smart reader outside the field. Follow the user's language.
 - Say what a module does before using the authors' name for it: "a small network that scores each image patch (the authors call it X)".
 - Define each unavoidable technical term in a short clause at first use. Prefer short sentences with a concrete subject and verb. Avoid chains of hedges and repeated "not X but Y" contrasts.
 - Where it matters whether a statement is checked, the authors' claim, or your inference, mark it briefly in place, such as "(inferred)" or "(checked in official config)"; do not tag every sentence.
-- Do not narrate your process. State the scope in one or two plain lines: exact version and release date read, the sources and traction platforms that inform the verdict, and anything decisive that could not be checked and why.
+- Do not narrate your process. State the scope in one or two plain lines: exact version, release date, and publication venue/tier (such as `ICLR 2024 Oral`, `Nature`, or `arXiv preprint`), the sources and traction platforms that inform the verdict, and anything decisive that could not be checked and why.
 
 ## Sections
 
@@ -111,7 +111,7 @@ Use these six sections in this order. Phrase each heading as the reader's questi
 
    In column 2, name the closest earlier work and briefly note how it was checked — for example `Spatia (§3)` when verified in that paper's primary text, `BM25 (standard)` for textbook tools, or `X (via survey)` / `X (per §2, primary text not rechecked)` when relying on a secondary reference or staying within the Quick budget. "Lost without this change" is relative to that closest earlier work, not to having no method at all; a benefit any similar method already gives is not lost. For a tutorial, review, or commentary whose contribution is the explanation or argument, compare its framing and claims with existing explanations instead. Say plainly when a claimed contribution is mostly relabeling, and just as plainly when an undersold part is the real contribution. Keep traction metrics out of novelty claims here.
 5. **Why did the result come out this way — should I believe it?** — the evidence that carries the main result, **how complete and rich the experiments and manuscript are** (ablations, baseline fairness, stress/scaling checks, failure analysis, appendix depth versus thin or selective reporting), the strongest other explanation and whether the work rules it out, and anything from reviews, newer versions, code, issues, or reproductions that changes the picture. Raise a caveat only where it changes what the reader understands or does; no generic limitation list.
-6. **Is it worth my time, and how would I use it?** — who should read or use it and for what, grounded in **three value references**: (a) **manuscript richness and experimental completeness** (whether reading the paper/appendix rewards the time spent), (b) **community value** (reusable open code, weights, datasets, benchmark harness, or durable empirical findings, plus whether something newer has superseded it), and (c) **time-contextualized traction** when available (Semantic Scholar / Google Scholar citations, GitHub stars, Hugging Face paper votes or model/dataset adoption, interpreted relative to release date; state plainly if unchecked or unavailable). Add practical reuse caveats, and place the five integer scores here when they apply.
+6. **Is it worth my time, and how would I use it?** — who should read or use it and for what, grounded in **three value references**: (a) **manuscript richness and experimental completeness** (whether reading the paper/appendix rewards the time spent), (b) **community value** (reusable open code, weights, datasets, benchmark harness, or durable empirical findings, plus whether something newer has superseded it), and (c) **venue standing and time-contextualized traction** when available (journal or conference venue and tier such as Oral/Spotlight/Poster versus preprint, alongside Semantic Scholar / Google Scholar citations, GitHub stars, and Hugging Face paper votes or model/dataset adoption, interpreted relative to release date; state plainly if unchecked or unavailable). Add practical reuse caveats, and place the five integer scores here when they apply.
 
 Put each citation next to the fact it supports: section, figure, table, or equation number, or a link.
 

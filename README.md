@@ -12,7 +12,7 @@ Ad-hoc "summarize this paper" prompts often repeat branded module names or list 
 - **Strip names, run the mechanism** — reduces modules to *input → transform → output* via a terminal-safe Unicode box diagram (`★` new vs. `○` reused) and one hand-computable example.
 - **Check real novelty against primary texts** — separates borrowed backbone/prompt/data power from real changes by reading the closest earlier work directly (never abstract similarity or citation counts).
 - **Test rival explanations of the numbers** — weighs the authors' story against scaffolding, compute asymmetry, metric circularity, leakage, experimental completeness, and outside audits (reviews, version diffs, official configs).
-- **Weigh real paper & community value** — factors in manuscript richness, ablation thoroughness, reusable artifacts, and time-contextualized traction (Semantic/Google Scholar citations, GitHub stars, Hugging Face votes) without confusing popularity with algorithmic novelty.
+- **Weigh real paper & community value** — factors in venue/tier (e.g. Oral/Spotlight vs. preprint), manuscript richness, ablation thoroughness, reusable artifacts, and time-contextualized traction (Semantic/Google Scholar citations, GitHub stars, Hugging Face votes) without confusing prestige or popularity with algorithmic novelty.
 - **Zero lock-in, safe by default** — pure Markdown, explicit invocation only (`/clear-eyed-reading` or `$clear-eyed-reading`), follows your language, and treats paper/repo text strictly as untrusted material.
 
 ## Quick Start

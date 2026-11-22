@@ -14,7 +14,7 @@ These drive the research. The depth profile sets how far to check, and the writi
 ## How to research
 
 - Follow the depth profile below for reading scope, number of primary-text neighbor checks, and outside-material budget. Spend effort where a check could change the verdict.
-- Identify the exact work, publication/release date, and version (preprint version, venue version). Within your depth scope, read the primary text; never fill gaps from an abstract, caption, search snippet, or guess. Say plainly what you could not check. Do not bypass CAPTCHAs, logins, or other access controls; report the source as unchecked.
+- Identify the exact work, publication/release date, venue and presentation tier (journal, conference Oral/Spotlight/Poster, workshop, or unrefereed preprint), and version. Within your depth scope, read the primary text; never fill gaps from an abstract, caption, search snippet, or guess. Say plainly what you could not check. Do not bypass CAPTCHAs, logins, or other access controls; report the source as unchecked.
 - Inventory the contributions the authors claim — title, abstract, contribution list, named modules, method, experiments, conclusion — and treat each as a claim to check, not as the outline of your explanation.
 - When checking a claim against earlier work, look beyond the paper's own Related Work (via search, references, citing work, older names for the same idea, or neighboring fields) and compare against the earlier work's primary text, not its abstract. If the primary text is inaccessible, you may use a reliable secondary source such as a survey and mark that in the comparison; for background or secondary claims outside a quick budget, cite the basis honestly rather than pretending the primary text was checked. Citation counts, GitHub stars, Hugging Face votes, and downloads help find candidates and inform adoption and community value, but never prove algorithmic novelty.
 - Before accepting the authors' explanation of the result, ask what else could produce it, and check **experimental completeness and manuscript richness** — whether baselines, ablations, stress/scaling tests, failure analyses, visual evidence, and implementation details are thorough or thin and selective.
@@ -26,7 +26,7 @@ These drive the research. The depth profile sets how far to check, and the writi
 
 A work is more than its main claims. Within your depth budget, check what answers a real question:
 
-1. peer reviews, rebuttals, errata, retractions, acceptance status;
+1. publication venue and tier (journal, conference Oral/Spotlight/Poster, workshop, or unrefereed preprint), peer reviews, rebuttals, errata, retractions;
 2. version changes — claims or tables added, narrowed, or dropped;
 3. author materials — project page, demo, talk, slides, blog, thesis chapter;
 4. code and artifacts — repository, configs, weights, model or dataset cards, evaluation scripts, licenses;
@@ -39,9 +39,9 @@ When judging **overall paper worth and community value**, weigh three dimensions
 
 - **Manuscript richness and experimental completeness:** breadth of baselines, ablations, scaling/robustness checks, failure analysis, diagnostic figures/tables, and reproduction details;
 - **Concrete community value:** reusable code, weights, datasets, evaluation harnesses, or durable empirical lessons left to practitioners — a simple method with exhaustive ablations and rock-solid open artifacts can have high community value;
-- **Time-contextualized traction:** Semantic Scholar / Google Scholar citations, GitHub stars, and Hugging Face votes or adoption interpreted relative to publication age (a new preprint naturally has near-zero counts; an older work's sustained adoption or silence carries more weight).
+- **Venue standing and time-contextualized traction:** publication venue and tier (journal, conference Oral/Spotlight/Poster, workshop, or unrefereed preprint) alongside Semantic Scholar / Google Scholar citations, GitHub stars, and Hugging Face votes or adoption interpreted relative to publication age (a new preprint naturally has no venue or citations yet; an older work's venue tier and sustained adoption or silence carry more weight).
 
-What is algorithmically new is still decided strictly by primary-text comparison with the closest earlier work, and high traction never excuses flawed evidence or failed reproductions. Take verifiable facts from reviews and issues (does not install, config differs, ablation missing, outcome replaced), not their tone. Do not judge people by identity, institution, funder, or compute; mention these only as sources of ability or conditions for reproduction. Never guess traction numbers; if a metric cannot be checked, say so and do not infer from absence.
+What is algorithmically new is still decided strictly by primary-text comparison with the closest earlier work, and neither a prestigious venue/Oral tag nor high traction excuses flawed evidence or failed reproductions. Take verifiable facts from reviews and issues (does not install, config differs, ablation missing, outcome replaced), not their tone. Do not judge people by identity, institution, funder, or compute; mention these only as sources of ability or conditions for reproduction. Never guess traction numbers; if a metric cannot be checked, say so and do not infer from absence.
 
 ## Different kinds of work
 
