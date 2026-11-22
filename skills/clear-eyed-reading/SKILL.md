@@ -1,6 +1,6 @@
 ---
 name: clear-eyed-reading
-description: Fast first-screen read of a research paper, review, technical blog, commentary, or other article in plain language, covering what it actually does once names and branding are stripped away, how it works through a text diagram and one compact worked example, what is really new versus earlier work, where its ability comes from, why its result came out that way, and whether it merits deeper study. Available only when the user explicitly invokes this skill. Do not use for exhaustive section-by-section, figure-by-figure, equation, experiment, appendix, or outside-source coverage; full translation; formal peer review; or accept/reject recommendation.
+description: Fast first-screen read of a research paper, review, technical blog, commentary, or other article in plain language, covering what it actually does once names and branding are stripped away, how it works through a text diagram and one compact worked example, what is really new versus earlier work, where its ability comes from, why its result came out that way, and its practical and community value (experimental completeness, manuscript richness, citations, GitHub stars, Hugging Face votes). Available only when the user explicitly invokes this skill. Do not use for exhaustive section-by-section, figure-by-figure, equation, experiment, appendix, or outside-source coverage; full translation; formal peer review; or accept/reject recommendation.
 disable-model-invocation: true
 argument-hint: "<paper URL, arXiv id, DOI, or local file>"
 ---
@@ -9,7 +9,7 @@ argument-hint: "<paper URL, arXiv id, DOI, or local file>"
 
 # Clear-Eyed Reading
 
-Goal: a reader with no background finishes knowing what the work actually does, where its ability comes from, what is really new, and why its result came out the way it did — judged independently of the authors' names, branding, and framing. This can raise or lower the reader's opinion of the work; an undersold structural contribution deserves as much attention as an inflated claim. Critique claims and evidence, never the authors.
+Goal: a reader with no background finishes knowing what the work actually does, where its ability comes from, what is really new, why its result came out the way it did, and what overall value it brings to the community — judged independently of the authors' names, branding, and framing. This can raise or lower the reader's opinion of the work; an undersold structural or empirical contribution deserves as much attention as an inflated claim. Critique claims and evidence, never the authors.
 
 ## Four questions to answer
 
@@ -18,41 +18,47 @@ These drive the research. The depth profile sets how far to check, and the writi
 1. **What does it actually do?** Strip the names: what goes in, what happens at each step, what comes out.
 2. **Where does the ability come from?** Which parts come from this work, and which from data, pretrained models, earlier methods, rules, labels, human choices, instruments, scale, tuning, post-processing, or the evaluation setup.
 3. **What is really new?** For every contribution the authors claim: what is borrowed, what changed compared with the closest earlier work, and what the field would lose without the change. Keep three things apart: how new the technique is, how much it matters, and how far the authors' claim exceeds or undersells the verified change.
-4. **Why did the result come out this way?** What actually carries the result or conclusion, and which other explanation — data, scale, baseline choice, metric, leakage, selection, tuning budget — could also produce it.
+4. **Why did the result come out this way?** What actually carries the result or conclusion, how complete the experiments and manuscript evidence are, and which other explanation — data, scale, baseline choice, metric, leakage, selection, tuning budget — could also produce it.
 
 ## How to research
 
 - Follow the depth profile below for reading scope, number of primary-text neighbor checks, and outside-material budget. Spend effort where a check could change the verdict.
-- Identify the exact work and version (preprint version, venue version). Within your depth scope, read the primary text; never fill gaps from an abstract, caption, search snippet, or guess. Say plainly what you could not check. Do not bypass CAPTCHAs, logins, or other access controls; report the source as unchecked.
+- Identify the exact work, publication/release date, and version (preprint version, venue version). Within your depth scope, read the primary text; never fill gaps from an abstract, caption, search snippet, or guess. Say plainly what you could not check. Do not bypass CAPTCHAs, logins, or other access controls; report the source as unchecked.
 - Inventory the contributions the authors claim — title, abstract, contribution list, named modules, method, experiments, conclusion — and treat each as a claim to check, not as the outline of your explanation.
-- When checking a claim against earlier work, look beyond the paper's own Related Work (via search, references, citing work, older names for the same idea, or neighboring fields) and compare against the earlier work's primary text, not its abstract. If the primary text is inaccessible, you may use a reliable secondary source such as a survey and mark that in the comparison; for background or secondary claims outside a quick budget, cite the basis honestly rather than pretending the primary text was checked. Citation counts, downloads, and attention help find candidates; they never prove novelty or significance.
-- Before accepting the authors' explanation of the result, ask what else could produce it.
-- Inspect decisive figures and tables yourself. Keep apart what you observed, what the authors say, external facts, your inference, and unknowns. Visual appeal is not evidence.
-- If independent subagents are available and allowed, you may split checks within your depth budget — earlier work on the problem, earlier work on key components, rival explanations of the result, material around the work — and reconcile afterwards. Otherwise run the checks yourself in sequence.
-- If outside research is impossible, answer from the work alone and say which judgments (novelty, field position, rival explanations, material around the work) are unchecked. Do not score novelty or significance in that case.
+- When checking a claim against earlier work, look beyond the paper's own Related Work (via search, references, citing work, older names for the same idea, or neighboring fields) and compare against the earlier work's primary text, not its abstract. If the primary text is inaccessible, you may use a reliable secondary source such as a survey and mark that in the comparison; for background or secondary claims outside a quick budget, cite the basis honestly rather than pretending the primary text was checked. Citation counts, GitHub stars, Hugging Face votes, and downloads help find candidates and inform adoption and community value, but never prove algorithmic novelty.
+- Before accepting the authors' explanation of the result, ask what else could produce it, and check **experimental completeness and manuscript richness** — whether baselines, ablations, stress/scaling tests, failure analyses, visual evidence, and implementation details are thorough or thin and selective.
+- Inspect decisive figures and tables yourself. Keep apart what you observed, what the authors say, external facts, your inference, and unknowns. Visual appeal is not evidence, whereas dense, informative figures, diagnostic tables, and thorough appendices raise the manuscript's reference value.
+- If independent subagents are available and allowed, you may split checks within your depth budget — earlier work on the problem, earlier work on key components, rival explanations and experimental completeness, outside material and traction signals — and reconcile afterwards. Otherwise run the checks yourself in sequence.
+- If outside research is impossible, answer from the work alone and say which judgments (novelty, field position, rival explanations, outside material, traction metrics) are unchecked. Do not score novelty or significance in that case.
 
-## Material around the work
+## Outside material and paper-value signals
 
-A work is more than its main text. Within your depth budget, check what can answer a real question:
+A work is more than its main claims. Within your depth budget, check what answers a real question:
 
 1. peer reviews, rebuttals, errata, retractions, acceptance status;
 2. version changes — claims or tables added, narrowed, or dropped;
 3. author materials — project page, demo, talk, slides, blog, thesis chapter;
 4. code and artifacts — repository, configs, weights, model or dataset cards, evaluation scripts, licenses;
-5. independent reproductions and real use — reimplementations, reproduction reports, downstream use, issue threads about failures or maintenance, whether it has been superseded;
-6. community discussion and how later work actually cites it (extends, mentions, disputes, fails to reproduce).
+5. independent reproductions and real use — reimplementations, reproduction reports, downstream integration, issue threads about failures or maintenance, whether it has been superseded;
+6. scholarly and community traction — Semantic Scholar or Google Scholar citation counts and how citing work uses it (extends, benchmarks against, disputes, fails to reproduce), GitHub stars and maintenance activity, Hugging Face paper votes and model/dataset likes or downloads.
 
 For clinical and other empirical studies, the trial registry, protocol, analysis plan, ethics approval, and data-availability statement play the role of items 1–2; a switched primary outcome is often the strongest signal.
 
-This material calibrates maturity, reproducibility, claim stability, reusability, and caveats. What is new is still decided by the work and its closest earlier work. Popularity counts and headlines prove nothing about novelty, and neither does silence; concrete adoption facts, such as support in a maintained library or documented downstream use, do inform reusability. Take verifiable facts from reviews and issues (does not install, config differs, ablation missing, outcome replaced), not their tone. Do not judge people by identity, institution, funder, or compute; mention these only as sources of ability or conditions for reproduction. If something cannot be found, say so; do not infer from absence.
+When judging **overall paper worth and community value**, weigh three dimensions together without confusing them with algorithmic novelty:
+
+- **Manuscript richness and experimental completeness:** breadth of baselines, ablations, scaling/robustness checks, failure analysis, diagnostic figures/tables, and reproduction details;
+- **Concrete community value:** reusable code, weights, datasets, evaluation harnesses, or durable empirical lessons left to practitioners — a simple method with exhaustive ablations and rock-solid open artifacts can have high community value;
+- **Time-contextualized traction:** Semantic Scholar / Google Scholar citations, GitHub stars, and Hugging Face votes or adoption interpreted relative to publication age (a new preprint naturally has near-zero counts; an older work's sustained adoption or silence carries more weight).
+
+What is algorithmically new is still decided strictly by primary-text comparison with the closest earlier work, and high traction never excuses flawed evidence or failed reproductions. Take verifiable facts from reviews and issues (does not install, config differs, ablation missing, outcome replaced), not their tone. Do not judge people by identity, institution, funder, or compute; mention these only as sources of ability or conditions for reproduction. Never guess traction numbers; if a metric cannot be checked, say so and do not infer from absence.
 
 ## Different kinds of work
 
-Adapt what counts as evidence: identification and rival explanations for causal claims; assumptions and the steps that carry the conclusion for theory; population, intervention, comparator, outcomes, and risk-benefit for clinical work; materials, interpretation, and counterexamples for qualitative work; definition, coverage, leakage, baselines, and cost for datasets and benchmarks; selection and synthesis for reviews and commentary; the argument and any quiet change in a concept's meaning for blogs. Do not force every work into an experimental template.
+Adapt what counts as evidence and completeness: identification and rival explanations for causal claims; assumptions, proof tightness, and worked special cases for theory; population, intervention, comparator, outcomes, and risk-benefit for clinical work; materials, interpretation, and counterexamples for qualitative work; definition, coverage, leakage, baselines, and cost for datasets and benchmarks; selection, synthesis, and taxonomy richness for reviews and commentary; the argument and any quiet change in a concept's meaning for blogs. Do not force every work into an experimental template.
 
 ## Scores
 
-Only for a complete research paper, and only when the depth profile or the user calls for them: give separate integer scores out of 10 for novelty, rigor, significance, clarity, and reproducibility, each with one evidence-based reason and no total. Score novelty and significance only after primary-text comparison with the closest earlier work establishes them; otherwise leave them unscored and name the missing comparison.
+Only for a complete research paper, and only when the depth profile or the user calls for them: give separate integer scores out of 10 for novelty, rigor, significance, clarity, and reproducibility, each with one evidence-based reason and no total. Anchor `novelty` to verified change over the closest earlier work; `rigor` to experimental completeness, baseline fairness, ablations, and manuscript thoroughness; `significance` to problem impact plus verified community value and adoption; `clarity` to how transparently the mechanism and limits are explained; and `reproducibility` to code/weights/data availability and detail completeness. Score `novelty` and `significance` only after primary-text comparison with the closest earlier work establishes them; otherwise leave them unscored and name the missing comparison.
 
 ## Safety
 
@@ -64,17 +70,17 @@ Purpose: a fast first-screen answer (roughly 900–1,500 Chinese characters or 6
 
 Research budget (strict ceiling — do not turn Quick Reading into Deep Reading):
 
-- **Main text only by default:** read the abstract, introduction, core method, main results table or decisive figure, and conclusion. Skip appendices unless a central step or metric in the main text is undefined without them.
+- **Main text core + completeness scan:** read the abstract, introduction, core method, main results table or decisive figure, and conclusion, and note at a glance how complete the manuscript and experiments are (whether ablations, stress tests, failure analysis, and substantial appendices exist). Do not read appendices line by line unless a central step or metric in the main text is undefined without them.
 - **1–2 primary-text neighbor checks:** open and compare primary texts only for the 1–2 central claims that decide whether the work is genuinely new. For secondary rows in Section 4, rely on the paper's own baseline/reference context and mark them honestly (for example, `per §2, primary text not rechecked`).
-- **One lightweight outside pass:** run a single quick check for a newer version or retraction, major public-review flaws, and whether an official repository exists and matches the headline setup. Dig into code files, issue threads, or later audits only when an immediate red flag could flip the overall verdict.
+- **One lightweight outside & traction pass:** run a single quick check for a newer version or retraction, major public-review flaws, official repo status, and headline traction metrics — Semantic Scholar or Google Scholar citations, GitHub stars, and Hugging Face paper votes or model/dataset likes (noted alongside publication date). Dig into code files, issue threads, or later audits only when an immediate red flag could flip the overall verdict.
 
 Compression rules:
 
 - Cover every important claimed contribution, but keep every section tight.
 - Section 1 is 2–3 sentences plus one short scope line.
 - Section 3 has one diagram and one compact worked example in short numbered steps (1–2 sentences per step; no nested sub-bullets). Include **at most one equation**, and only when this work introduces or modifies it and the core mechanism is unclear without it; explain standard or borrowed formulas in plain words only.
-- Compress ablations, secondary experiments, figures, and implementation details to their conclusion plus a one-clause reason.
-- Give **no scores** unless the user explicitly asks for them.
+- Compress ablations, secondary experiments, figures, and implementation details to their conclusion plus a one-clause reason, while noting in Section 5 whether experimental coverage is thorough or thin.
+- In Section 6, include a compact **value snapshot** (manuscript/experimental completeness, concrete community value, and checked Scholar citations / GitHub stars / HF votes relative to release age). Give **no integer scores** unless the user explicitly asks for them.
 - If the user asks for full-paper or appendix coverage, reproduction-grade equations and code checks, or exhaustive literature and companion verification, deliver this quick screen first and recommend `clear-eyed-deep-reading` rather than silently expanding.
 
 # Writing the Answer
@@ -83,17 +89,17 @@ Write for a smart reader outside the field. Follow the user's language.
 
 ## Plain words
 
-- Never put this skill's working labels in the answer — "four questions", "ability source", "genuine increment", "material around the work", "claim gap", "removal counterfactual", and the like. Say the plain thing instead: "this ability actually comes from the pretrained backbone", "the only new part is the reranker".
+- Never put this skill's working labels in the answer — "four questions", "ability source", "genuine increment", "outside material", "claim gap", "removal counterfactual", and the like. Say the plain thing instead: "this ability actually comes from the pretrained backbone", "the only new part is the reranker".
 - Say what a module does before using the authors' name for it: "a small network that scores each image patch (the authors call it X)".
 - Define each unavoidable technical term in a short clause at first use. Prefer short sentences with a concrete subject and verb. Avoid chains of hedges and repeated "not X but Y" contrasts.
 - Where it matters whether a statement is checked, the authors' claim, or your inference, mark it briefly in place, such as "(inferred)" or "(checked in official config)"; do not tag every sentence.
-- Do not narrate your process. State the scope in one or two plain lines: exact version read, the sources that decide the verdict, and anything decisive that could not be checked and why.
+- Do not narrate your process. State the scope in one or two plain lines: exact version and release date read, the sources and traction platforms that inform the verdict, and anything decisive that could not be checked and why.
 
 ## Sections
 
 Use these six sections in this order. Phrase each heading as the reader's question, in the user's language. For non-paper material, rename or merge sections that do not apply, keeping the order.
 
-1. **In one sentence** — what the work actually does in plain words, its single most important new thing, and the overall verdict, followed by the short scope line.
+1. **In one sentence** — what the work actually does in plain words, its single most important new thing, and the overall verdict (weighing both novelty and real-world/community value), followed by the short scope line.
 2. **What problem does it solve?** — the concrete difficulty, why it is hard, and how people handled it before. Give only the background this work needs.
 3. **How does it work?** — first the diagram (below), whose `★`/`○` notes already show which parts are added versus borrowed or external, then **one concrete miniature example** followed from input to output. Pick a miniature case suited to the kind of work — such as a 3-number vector or 4-pixel row for a model, one sample task for a benchmark, one minimal special case for a theorem, one group comparison for an empirical or clinical study, or one core argument chain for an essay — followed by one line giving the work's real scale when applicable. Focus each step on what goes in, what transforms, what comes out, and why the step is needed; **keep comparisons with earlier papers for section 4** so sections 3 and 4 do not repeat each other.
    - **Inference before training:** walk through online operation or inference end-to-end first; add a compact training step afterwards only when training differs in a way that matters for the depth profile (for example, when the training setup is itself a core contribution, or in Deep Reading).
@@ -103,9 +109,9 @@ Use these six sections in this order. Phrase each heading as the reader's questi
    | Part | Already existed (closest earlier work) | What this work changed | Lost without this change |
    | --- | --- | --- | --- |
 
-   In column 2, name the closest earlier work and briefly note how it was checked — for example `Spatia (§3)` when verified in that paper's primary text, `BM25 (standard)` for textbook tools, or `X (via survey)` / `X (per §2, primary text not rechecked)` when relying on a secondary reference or staying within the Quick budget. "Lost without this change" is relative to that closest earlier work, not to having no method at all; a benefit any similar method already gives is not lost. For a tutorial, review, or commentary whose contribution is the explanation or argument, compare its framing and claims with existing explanations instead. Say plainly when a claimed contribution is mostly relabeling, and just as plainly when an undersold part is the real contribution.
-5. **Why did the result come out this way — should I believe it?** — the evidence that carries the main result, the strongest other explanation and whether the work rules it out, and anything from reviews, newer versions, code, issues, or reproductions that changes the picture. Raise a caveat only where it changes what the reader understands or does; no generic limitation list, no popularity section.
-6. **Is it worth my time, and how would I use it?** — who should read or use it, for what, with which practical caveats, and concrete reuse facts such as where a maintained implementation lives or whether something newer has superseded it. Scores go here when they apply.
+   In column 2, name the closest earlier work and briefly note how it was checked — for example `Spatia (§3)` when verified in that paper's primary text, `BM25 (standard)` for textbook tools, or `X (via survey)` / `X (per §2, primary text not rechecked)` when relying on a secondary reference or staying within the Quick budget. "Lost without this change" is relative to that closest earlier work, not to having no method at all; a benefit any similar method already gives is not lost. For a tutorial, review, or commentary whose contribution is the explanation or argument, compare its framing and claims with existing explanations instead. Say plainly when a claimed contribution is mostly relabeling, and just as plainly when an undersold part is the real contribution. Keep traction metrics out of novelty claims here.
+5. **Why did the result come out this way — should I believe it?** — the evidence that carries the main result, **how complete and rich the experiments and manuscript are** (ablations, baseline fairness, stress/scaling checks, failure analysis, appendix depth versus thin or selective reporting), the strongest other explanation and whether the work rules it out, and anything from reviews, newer versions, code, issues, or reproductions that changes the picture. Raise a caveat only where it changes what the reader understands or does; no generic limitation list.
+6. **Is it worth my time, and how would I use it?** — who should read or use it and for what, grounded in **three value references**: (a) **manuscript richness and experimental completeness** (whether reading the paper/appendix rewards the time spent), (b) **community value** (reusable open code, weights, datasets, benchmark harness, or durable empirical findings, plus whether something newer has superseded it), and (c) **time-contextualized traction** when available (Semantic Scholar / Google Scholar citations, GitHub stars, Hugging Face paper votes or model/dataset adoption, interpreted relative to release date; state plainly if unchecked or unavailable). Add practical reuse caveats, and place the five integer scores here when they apply.
 
 Put each citation next to the fact it supports: section, figure, table, or equation number, or a link.
 

@@ -11,7 +11,8 @@ Ad-hoc "summarize this paper" prompts often repeat branded module names or list 
 
 - **Strip names, run the mechanism** — reduces modules to *input → transform → output* via a terminal-safe Unicode box diagram (`★` new vs. `○` reused) and one hand-computable example.
 - **Check real novelty against primary texts** — separates borrowed backbone/prompt/data power from real changes by reading the closest earlier work directly (never abstract similarity or citation counts).
-- **Test rival explanations of the numbers** — weighs the authors' story against scaffolding, compute asymmetry, metric circularity, leakage, and outside facts (reviews, version diffs, official configs, audits).
+- **Test rival explanations of the numbers** — weighs the authors' story against scaffolding, compute asymmetry, metric circularity, leakage, experimental completeness, and outside audits (reviews, version diffs, official configs).
+- **Weigh real paper & community value** — factors in manuscript richness, ablation thoroughness, reusable artifacts, and time-contextualized traction (Semantic/Google Scholar citations, GitHub stars, Hugging Face votes) without confusing popularity with algorithmic novelty.
 - **Zero lock-in, safe by default** — pure Markdown, explicit invocation only (`/clear-eyed-reading` or `$clear-eyed-reading`), follows your language, and treats paper/repo text strictly as untrusted material.
 
 ## Quick Start
@@ -40,8 +41,8 @@ Invoke explicitly on any paper URL, `arXiv` ID, DOI, technical blog, or local PD
 | | ⚡ `clear-eyed-reading` | 🔬 `clear-eyed-deep-reading` |
 | --- | --- | --- |
 | **Goal** | ~2-minute first screen to decide whether to read deeper | Full mastery to retell, redraw, reproduce without traps, and challenge |
-| **Checks** | Main text core (skips appendices); primary texts of 1–2 decisive neighbor claims + one quick version/review/repo pass | Full text + appendices, figures, equations, multi-route primary-text checks across claims, and all six kinds of outside material |
-| **Output** | ~600–1,000 words: 1 diagram, 1 short worked example, at most 1 novel core equation; no scores by default | Expanded walkthrough (inference before training), equations with numbers, 1–3 figure guides, ablations, 5 integer scores |
+| **Checks** | Main text + completeness scan; primary texts of 1–2 decisive neighbor claims + quick version/review/repo/traction pass | Full text + appendices, experimental completeness, multi-route neighbor primary texts, and all outside/traction signals |
+| **Output** | ~600–1,000 words: 1 diagram, 1 short example, ≤1 novel equation, value snapshot; no scores by default | Expanded walkthrough (inference before training), equations with numbers, 1–3 figure guides, ablations, value synthesis & 5 scores |
 
 ## Maintenance
 

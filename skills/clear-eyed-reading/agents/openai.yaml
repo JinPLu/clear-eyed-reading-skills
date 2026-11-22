@@ -1,6 +1,6 @@
 interface:
   display_name: "Clear-Eyed Reading"
-  short_description: "Fast plain-language screen of what a work does, what is new, and whether to read deeper"
-  default_prompt: "Use $clear-eyed-reading to quickly explain in plain language what this article really does, what is actually new, and whether its result and contribution hold up."
+  short_description: "Fast plain-language screen of mechanism, real novelty, evidence, and community value"
+  default_prompt: "Use $clear-eyed-reading to quickly explain in plain language what this article really does, what is actually new, whether its evidence holds up, and what value it offers."
 policy:
   allow_implicit_invocation: false
