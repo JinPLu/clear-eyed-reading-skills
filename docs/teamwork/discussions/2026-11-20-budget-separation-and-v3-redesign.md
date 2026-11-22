@@ -44,4 +44,4 @@
    - **版面丰富度与实验完整度**：基线覆盖面、关键消融、规模/鲁棒性检验、失败案例分析、图表信息密度与附录复现细节，支撑第 5 节证据厚度及 `rigor` / `reproducibility`；
    - **实质社区价值**：开源代码、权重、数据集、评测器或可复用的扎实实证规律；
    - **期刊/会议档位与时间归一化社区热度**：期刊/会议名称及录用档位（如 `ICLR Oral`、`NeurIPS Spotlight`、`Nature` 或未审稿预印本），配合 Semantic/Google Scholar 引用数、GitHub Stars 与维护活跃度、Hugging Face 论文 Votes 与模型/数据集赞数及下载量（结合发布时长解读，新预印本不因暂无顶会头衔或 0 引用而扣分；查不到则如实标注，绝不编造）。
-2. **同步更新回归集、双语精简 README 与实测运行图**：新增 `value-reference-rich-experiments-and-traction` 与 `value-reference-fresh-preprint-time-context` 两条回归用例（共 42 条），更新 `SWE-bench` 双语终端运行图并重装本机全部 10 个 Skills 目录。
+2. **同步更新回归集、双语精简 README 与实测运行图**：新增 `value-reference-rich-experiments-and-traction` 与 `value-reference-fresh-preprint-time-context` 两条回归用例，并将实测基准锚点统一收敛为 `SWE-bench`（`arXiv:2310.06770`）与 `DeepSeek-R1 / DeepSeek-R1-Zero`（`arXiv:2501.12948`），移出 `evals/cases.yaml` 中的 `LiveWorld` 用例（现共 43 条用例），同步写入 `AGENTS.md` 测试规范并重装本机全部 10 个 Skills 目录。

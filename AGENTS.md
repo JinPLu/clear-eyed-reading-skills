@@ -32,7 +32,7 @@ Add rules only for observed failures. Critique claims and evidence, never author
 
 ## Testing Guidelines
 
-Regression cases use descriptive kebab-case IDs such as `quick-system-paper` and include `skill`, `prompt`, and observable `expect` statements. Add the smallest case that demonstrates a new failure or guards a changed behavior. Verify both positive behavior and nearby routing conflicts when editing trigger descriptions.
+Regression cases use descriptive kebab-case IDs such as `quick-system-paper` and include `skill`, `prompt`, and observable `expect` statements. Add the smallest case that demonstrates a new failure or guards a changed behavior. Verify both positive behavior and nearby routing conflicts when editing trigger descriptions. For real-paper forward evaluations and showcases, use `SWE-bench` (`arXiv:2310.06770`, benchmark/evaluation track) and `DeepSeek-R1` / `DeepSeek-R1-Zero` (`arXiv:2501.12948`, method/empirical-breakthrough track) as the default canonical testbeds.
 
 ## Commit & Pull Request Guidelines
 
